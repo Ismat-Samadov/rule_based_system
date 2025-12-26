@@ -1,0 +1,243 @@
+{
+  "version": "1.0.0",
+  "profile_id": "mixed",
+  "name_az": "Qarışıq Təsərrüfat",
+  "name_en": "Mixed Farm",
+  "description_az": "Bitkiçilik və heyvandarlığı birləşdirən inteqrə olunmuş təsərrüfat",
+  "description_en": "Integrated farming combining crop production and livestock",
+  "icon": "🏡",
+  
+  "sub_types": [
+    {
+      "id": "crop_dairy",
+      "name_az": "Taxıl + Südlük heyvandarlıq",
+      "name_en": "Crops + Dairy",
+      "components": ["wheat", "dairy_cattle"],
+      "synergies": ["manure_fertilizer", "fodder_production"]
+    },
+    {
+      "id": "crop_sheep",
+      "name_az": "Taxıl + Qoyunçuluq",
+      "name_en": "Crops + Sheep",
+      "components": ["wheat", "sheep"],
+      "synergies": ["stubble_grazing", "manure_fertilizer"]
+    },
+    {
+      "id": "orchard_poultry",
+      "name_az": "Meyvə bağı + Quşçuluq",
+      "name_en": "Orchard + Poultry",
+      "components": ["apple", "poultry_layers"],
+      "synergies": ["pest_control", "fertilization"]
+    },
+    {
+      "id": "vegetable_livestock",
+      "name_az": "Tərəvəz + Heyvandarlıq",
+      "name_en": "Vegetable + Livestock",
+      "components": ["tomato", "cattle"],
+      "synergies": ["manure_compost", "crop_residue_feed"]
+    }
+  ],
+  
+  "applicable_regions": ["aran", "sheki_zagatala", "ganja_gazakh", "mountainous", "lankaran"],
+  "primary_regions": ["aran", "sheki_zagatala"],
+  
+  "required_inputs": {
+    "farm_components": {
+      "crop_types": {
+        "required": true,
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "livestock_types": {
+        "required": true,
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "crop_context": {
+      "required": false,
+      "note": "Include if farm has crops - same as wheat/vegetable/orchard profiles"
+    },
+    "livestock_context": {
+      "required": false,
+      "note": "Include if farm has livestock - same as livestock profile"
+    },
+    "weather": {
+      "temperature": {"required": true, "type": "number"},
+      "humidity": {"required": true, "type": "number"}
+    },
+    "resource_context": {
+      "water_availability": {
+        "required": false,
+        "type": "string",
+        "enum": ["abundant", "normal", "limited", "scarce"]
+      },
+      "labor_availability": {
+        "required": false,
+        "type": "string",
+        "enum": ["full", "partial", "limited"]
+      }
+    }
+  },
+  
+  "rule_categories": [
+    {
+      "id": "integration",
+      "name_az": "İnteqrasiya Qaydaları",
+      "name_en": "Integration Rules",
+      "rules_file": "rules/mixed/integration.json",
+      "priority": 1
+    },
+    {
+      "id": "resource_allocation",
+      "name_az": "Resurs Bölgüsü",
+      "name_en": "Resource Allocation",
+      "rules_file": "rules/mixed/resource_allocation.json",
+      "priority": 2
+    },
+    {
+      "id": "daily_coordination",
+      "name_az": "Gündəlik Koordinasiya",
+      "name_en": "Daily Coordination",
+      "rules_file": "rules/mixed/daily_coordination.json",
+      "priority": 3
+    }
+  ],
+  
+  "integration_opportunities": {
+    "manure_management": {
+      "name_az": "Peyin idarəetməsi",
+      "description_az": "Heyvan peyininin kompostlaşdırılması və əkin sahələrində gübrə kimi istifadəsi",
+      "benefits_az": ["Gübrə xərcinin azalması", "Torpaq sağlamlığı", "Tullantı azaldılması"],
+      "rules_apply": true
+    },
+    "stubble_grazing": {
+      "name_az": "Anız otlatma",
+      "description_az": "Yığımdan sonra sahədə heyvan otlatma",
+      "benefits_az": ["Əlavə yem mənbəyi", "Torpağa peyin düşməsi", "Alaq nəzarəti"],
+      "rules_apply": true
+    },
+    "crop_residue_feed": {
+      "name_az": "Bitki qalıqları yem kimi",
+      "description_az": "Tərəvəz və meyvə qalıqlarının heyvanlara verilməsi",
+      "benefits_az": ["Yem xərcinin azalması", "Tullantı azaldılması"],
+      "rules_apply": true
+    },
+    "pest_control_poultry": {
+      "name_az": "Quşlarla zərərverici nəzarəti",
+      "description_az": "Bağlarda sərbəst gəzən toyuqların zərərvericiləri yeməsi",
+      "benefits_az": ["Pestisid xərcinin azalması", "Təbii nəzarət"],
+      "rules_apply": false
+    }
+  },
+  
+  "typical_schedule": {
+    "early_morning": {
+      "time": "05:00-07:00",
+      "priority_order": ["milking", "feeding_livestock"],
+      "activities_az": ["Sağım (süd heyvanları)", "Həyvan yemləmə"]
+    },
+    "morning": {
+      "time": "07:00-10:00",
+      "priority_order": ["barn_cleaning", "irrigation", "field_work"],
+      "activities_az": ["Tövlə təmizliyi", "Sahə suvarması", "Sahə işləri"]
+    },
+    "midday": {
+      "time": "10:00-16:00",
+      "priority_order": ["livestock_water", "shade_provision", "office_work"],
+      "activities_az": ["Heyvanlara su", "Kölgəlik təminatı", "Planlama işləri"]
+    },
+    "evening": {
+      "time": "16:00-19:00",
+      "priority_order": ["evening_milking", "evening_feeding", "field_inspection"],
+      "activities_az": ["Axşam sağımı", "Axşam yemləmə", "Sahə yoxlaması"]
+    }
+  },
+  
+  "conflict_resolution_rules": {
+    "milking_vs_irrigation": {
+      "priority": "milking",
+      "reason_az": "Süd keyfiyyəti üçün sağım vaxtı dəyişməməlidir",
+      "action_az": "Suvarmanı sağımdan sonra aparın"
+    },
+    "vet_visit_vs_harvest": {
+      "priority": "vet_visit",
+      "reason_az": "Baytar viziti planlaşdırılıb",
+      "action_az": "Yığımı başqa işçiyə həvalə edin"
+    },
+    "feeding_vs_pesticide": {
+      "priority": "feeding",
+      "reason_az": "Heyvan rifahı birinci",
+      "action_az": "Pestisid çiləməni səhər erkən və ya sabaha keçirin"
+    },
+    "water_shortage": {
+      "priority_order": ["drinking_water_livestock", "critical_crop_irrigation", "routine_irrigation", "barn_cleaning"],
+      "action_az": "Su məhdud olduqda bu prioritet sırası ilə istifadə edin"
+    }
+  },
+  
+  "key_success_factors_az": [
+    "Yaxşı planlaşdırma və vaxt idarəetməsi",
+    "Resursların (su, əmək) effektiv bölgüsü",
+    "Sinerjik imkanların maksimum istifadəsi",
+    "Balanslı diqqət - nə bitkilər, nə heyvanlar qurban getməməli"
+  ],
+  
+  "common_mistakes_az": [
+    "Bir sahəyə həddən artıq fokuslanıb digərini unutmaq",
+    "Resurs konfliktlərini planlaşdırmamaq",
+    "Peyin idarəetməsini səhv etmək (təzə peyin istifadəsi)",
+    "Baytar xərclərindən qənaət etmək"
+  ],
+  
+  "synthetic_scenario_examples": [
+    {
+      "name": "busy_spring_day",
+      "description_az": "Yazda sıx gün - suvarma, sağım, sahə işi",
+      "inputs": {
+        "crop_types": ["wheat"],
+        "livestock_types": ["dairy_cattle"],
+        "crop_context": {
+          "stage": "tillering",
+          "days_since_irrigation": 4
+        },
+        "livestock_context": {
+          "animal_type": "cattle",
+          "count": 30,
+          "days_since_vet_check": 25
+        },
+        "temperature": 22,
+        "humidity": 55,
+        "labor_availability": "partial"
+      }
+    },
+    {
+      "name": "water_shortage",
+      "description_az": "Su məhdudiyyəti şəraitində prioritetləşdirmə",
+      "inputs": {
+        "crop_types": ["wheat", "tomato"],
+        "livestock_types": ["cattle", "sheep"],
+        "water_availability": "limited",
+        "temperature": 35,
+        "humidity": 30
+      }
+    },
+    {
+      "name": "post_harvest_integration",
+      "description_az": "Yığımdan sonra sahədə heyvan otlatma",
+      "inputs": {
+        "crop_types": ["wheat"],
+        "livestock_types": ["sheep"],
+        "crop_context": {
+          "stage": "post_harvest"
+        },
+        "livestock_context": {
+          "animal_type": "sheep",
+          "count": 100
+        },
+        "temperature": 28,
+        "humidity": 45
+      }
+    }
+  ]
+}

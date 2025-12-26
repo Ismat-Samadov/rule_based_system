@@ -1,0 +1,220 @@
+{
+  "version": "1.0.0",
+  "profile_id": "orchard",
+  "name_az": "Meyvə Bağı Təsərrüfatı",
+  "name_en": "Orchard Farm",
+  "description_az": "Alma, üzüm, nar, əncir və digər meyvə ağacları/tənəkləri",
+  "description_en": "Apple, grape, pomegranate, fig and other fruit trees/vines",
+  "icon": "🍎",
+  
+  "sub_types": [
+    {
+      "id": "apple",
+      "name_az": "Alma bağı",
+      "name_en": "Apple orchard",
+      "harvest_months": [8, 9, 10]
+    },
+    {
+      "id": "grape",
+      "name_az": "Üzüm bağı (Üzümlük)",
+      "name_en": "Vineyard",
+      "harvest_months": [8, 9, 10]
+    },
+    {
+      "id": "pomegranate",
+      "name_az": "Nar bağı",
+      "name_en": "Pomegranate orchard",
+      "harvest_months": [10, 11]
+    },
+    {
+      "id": "fig",
+      "name_az": "Əncir bağı",
+      "name_en": "Fig orchard",
+      "harvest_months": [7, 8, 9]
+    },
+    {
+      "id": "hazelnut",
+      "name_az": "Fındıq bağı",
+      "name_en": "Hazelnut orchard",
+      "harvest_months": [8, 9]
+    },
+    {
+      "id": "cherry",
+      "name_az": "Gilas bağı",
+      "name_en": "Cherry orchard",
+      "harvest_months": [5, 6, 7]
+    },
+    {
+      "id": "peach",
+      "name_az": "Şaftalı bağı",
+      "name_en": "Peach orchard",
+      "harvest_months": [7, 8]
+    }
+  ],
+  
+  "applicable_regions": ["sheki_zagatala", "ganja_gazakh", "lankaran", "aran", "mountainous"],
+  "primary_regions": ["sheki_zagatala", "ganja_gazakh"],
+  
+  "required_inputs": {
+    "crop_context": {
+      "crop_type": {
+        "required": true,
+        "type": "string",
+        "enum": ["apple", "grape", "pomegranate", "fig", "hazelnut", "cherry", "peach"]
+      },
+      "stage": {
+        "required": true,
+        "type": "string",
+        "enum": ["dormancy", "bud_break", "flowering", "fruit_set", "fruit_development", "veraison", "harvest", "post_harvest"]
+      },
+      "tree_age_years": {
+        "required": false,
+        "type": "integer",
+        "default": 5
+      },
+      "days_since_irrigation": {
+        "required": true,
+        "type": "integer"
+      },
+      "days_since_fertilization": {
+        "required": true,
+        "type": "integer"
+      },
+      "last_pruning_date": {
+        "required": false,
+        "type": "string",
+        "format": "date"
+      }
+    },
+    "weather": {
+      "temperature": {"required": true, "type": "number"},
+      "humidity": {"required": true, "type": "number"},
+      "rainfall_last_24h": {"required": false, "type": "number", "default": 0},
+      "rainfall_last_7days": {"required": false, "type": "number", "default": 0}
+    },
+    "soil": {
+      "soil_moisture": {"required": true, "type": "number"}
+    }
+  },
+  
+  "rule_categories": [
+    {
+      "id": "irrigation",
+      "name_az": "Suvarma",
+      "name_en": "Irrigation",
+      "rules_file": "rules/orchard/irrigation.json",
+      "priority": 1
+    },
+    {
+      "id": "fertilization",
+      "name_az": "Gübrələmə",
+      "name_en": "Fertilization",
+      "rules_file": "rules/orchard/fertilization.json",
+      "priority": 2
+    },
+    {
+      "id": "pruning",
+      "name_az": "Budama",
+      "name_en": "Pruning",
+      "rules_file": "rules/orchard/pruning.json",
+      "priority": 3
+    },
+    {
+      "id": "pest_disease",
+      "name_az": "Zərərverici və Xəstəlik",
+      "name_en": "Pest and Disease",
+      "rules_file": "rules/orchard/pest_disease.json",
+      "priority": 4
+    }
+  ],
+  
+  "typical_schedule": {
+    "dormancy_winter": {
+      "activities_az": ["Qış budaması", "Ağac gövdələrinin ağardılması", "Yağ emulsiyası çiləmə"],
+      "timing": "Dekabr-Fevral"
+    },
+    "spring": {
+      "activities_az": ["Yazlıq gübrələmə", "Tumurcuq dərmanlaması", "Suvarma başlanğıcı"],
+      "timing": "Mart-Aprel"
+    },
+    "flowering": {
+      "activities_az": ["Arı ailələrinin yerləşdirilməsi", "Ehtiyatlı suvarma", "Şaxta mühafizəsi"],
+      "timing": "Aprel-May"
+    },
+    "summer": {
+      "activities_az": ["Müntəzəm suvarma", "Yay budaması", "Pestisid çiləmə"],
+      "timing": "İyun-Avqust"
+    },
+    "harvest": {
+      "activities_az": ["Məhsul yığımı", "Sortlaşdırma", "Saxlama"],
+      "timing": "Avqust-Noyabr (növdən asılı)"
+    }
+  },
+  
+  "key_success_factors_az": [
+    "Düzgün budama texnikası",
+    "Vaxtında zərərverici mübarizəsi",
+    "Çiçəkləmə dövründə şaxtadan qorunma",
+    "Meyvə keyfiyyəti üçün kalsium və kalium",
+    "Yığım vaxtının düzgün təyini"
+  ],
+  
+  "common_mistakes_az": [
+    "Çiçəkləmə dövründə həddən artıq suvarma",
+    "Budama yaralarını işləməmək",
+    "Mildiu/pas xəstəliklərini gecikmələ müalicə",
+    "Yığımı gecikdirmək və ya tezləşdirmək",
+    "Yığımdan sonra gübrələməni unutmaq"
+  ],
+  
+  "synthetic_scenario_examples": [
+    {
+      "name": "grape_mildew_risk",
+      "description_az": "Üzüm - yağışdan sonra mildiu riski",
+      "inputs": {
+        "crop_type": "grape",
+        "stage": "flowering",
+        "temperature": 22,
+        "humidity": 88,
+        "rainfall_last_24h": 15,
+        "soil_moisture": 75,
+        "days_since_irrigation": 1
+      }
+    },
+    {
+      "name": "apple_heat_stress",
+      "description_az": "Alma - isti hava, meyvə yanığı riski",
+      "inputs": {
+        "crop_type": "apple",
+        "stage": "fruit_development",
+        "temperature": 36,
+        "humidity": 35,
+        "soil_moisture": 45,
+        "days_since_irrigation": 4
+      }
+    },
+    {
+      "name": "pomegranate_cracking",
+      "description_az": "Nar - qeyri-müntəzəm suvarma, çatlama riski",
+      "inputs": {
+        "crop_type": "pomegranate",
+        "stage": "fruit_development",
+        "temperature": 30,
+        "humidity": 50,
+        "soil_moisture": 30,
+        "days_since_irrigation": 10
+      }
+    },
+    {
+      "name": "winter_pruning_time",
+      "description_az": "Qış budama vaxtı",
+      "inputs": {
+        "crop_type": "apple",
+        "stage": "dormancy",
+        "temperature": 5,
+        "humidity": 60,
+        "last_pruning_date": null
+      }
+    }
+  ]
+}
