@@ -4,6 +4,15 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# But track deployment configs
+!railway.json
+!render.yaml
+!heroku.yml
+!docker-compose.yml
+!Dockerfile
+!Dockerfile.*
+!.dockerignore
 __pycache__/
 *.pyc
 *.pyo

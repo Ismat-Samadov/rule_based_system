@@ -1,0 +1,41 @@
+# Root .dockerignore for backend deployment
+
+# Frontend (not needed for backend-only deploy)
+frontend/
+
+# Documentation
+docs/
+*.md
+!backend/README.md
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env.local
+.pytest_cache/
+
+# Logs
+*.log
+
+# Testing
+backend/tests/
+backend/validate_json.py
