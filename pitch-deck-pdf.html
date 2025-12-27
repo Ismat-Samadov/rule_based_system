@@ -6,19 +6,19 @@
     <title>Yonca Smart Farm Assistant - Pitch Deck</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
 
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .reveal {
-            background: white;
+            background: #f8fafc;
         }
 
         .reveal .slides section {
             height: 100vh;
-            padding: 80px;
+            padding: 0;
             box-sizing: border-box;
             background: white;
         }
@@ -27,35 +27,38 @@
             font-size: 4.5em;
             font-weight: 900;
             line-height: 1.1;
-            margin: 0 0 30px 0;
-            color: #065f46;
+            margin: 0;
+            color: #0f172a;
             text-transform: none;
+            letter-spacing: -0.02em;
         }
 
         .reveal h2 {
-            font-size: 3em;
-            font-weight: 700;
-            margin: 0 0 40px 0;
-            color: #047857;
+            font-size: 3.5em;
+            font-weight: 800;
+            margin: 0 0 50px 0;
+            color: #0f172a;
             text-transform: none;
+            letter-spacing: -0.02em;
         }
 
         .reveal h3 {
             font-size: 1.8em;
             font-weight: 700;
             margin: 0 0 15px 0;
-            color: #065f46;
+            color: #0f172a;
             text-transform: none;
         }
 
         .reveal p, .reveal li {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #1f2937;
+            color: #475569;
+            font-weight: 400;
         }
 
         .reveal strong {
-            color: #dc2626;
+            color: #10b981;
             font-weight: 700;
         }
 
@@ -66,128 +69,208 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border: 8px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
         }
 
         .hero .logo {
-            font-size: 8em;
-            margin-bottom: 20px;
+            font-size: 7em;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(16, 185, 129, 0.2));
         }
 
         .hero h1 {
-            color: #10b981;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-size: 5.5em;
         }
 
         .hero .tagline {
             font-size: 1.6em;
-            color: #4b5563;
-            margin-bottom: 40px;
+            color: #065f46;
+            margin-bottom: 50px;
             font-weight: 600;
+            max-width: 900px;
         }
 
         .hero .cta {
             display: inline-block;
-            padding: 20px 50px;
-            background: white;
-            color: #10b981;
-            border: 3px solid #10b981;
+            padding: 22px 60px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.4em;
+            border-radius: 12px;
+            font-size: 1.3em;
             font-weight: 700;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            transition: transform 0.2s;
         }
 
         /* Problem Slide */
         .problem-slide {
-            border: 8px solid #dc2626;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .problem-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
         }
 
         .problem-slide h2 {
-            color: #dc2626;
-            font-size: 3.5em;
-            margin-bottom: 50px;
+            color: #991b1b;
+            margin-bottom: 70px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .problem-box {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.12);
+            text-align: center;
+            border-top: 5px solid #dc2626;
         }
 
         .problem-stat {
             font-size: 5em;
             font-weight: 900;
             color: #dc2626;
-            margin: 30px 0 15px 0;
+            margin: 0 0 20px 0;
             line-height: 1;
         }
 
         .problem-text {
-            font-size: 1.8em;
+            font-size: 1.3em;
             color: #1f2937;
             font-weight: 600;
+            line-height: 1.4;
         }
 
         /* Solution Slide */
         .solution-slide {
-            border: 8px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .solution-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+        }
+
+        .solution-slide h2 {
+            color: #065f46;
+            margin-bottom: 70px;
         }
 
         .solution-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 35px;
         }
 
         .solution-card {
             background: white;
-            border: 3px solid #10b981;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12);
+            border-left: 5px solid #10b981;
+            transition: transform 0.2s;
         }
 
         .solution-card .icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.2));
         }
 
         .solution-card h3 {
             color: #065f46;
-            font-size: 1.6em;
-            margin-bottom: 10px;
+            font-size: 1.7em;
+            margin-bottom: 15px;
         }
 
         .solution-card p {
-            color: #1f2937;
-            font-size: 1.1em;
+            color: #475569;
+            font-size: 1.15em;
+            line-height: 1.6;
         }
 
         /* Stats Slide */
         .stats-slide {
-            border: 8px solid #2563eb;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .stats-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
         }
 
         .stats-slide h2 {
             color: #1e40af;
+            text-align: center;
+            margin-bottom: 80px;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 60px;
+            gap: 35px;
         }
 
         .stat-box {
             background: white;
-            border: 3px solid #2563eb;
-            padding: 40px 20px;
-            border-radius: 10px;
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12);
             text-align: center;
+            border-top: 5px solid #2563eb;
         }
 
         .stat-number {
-            font-size: 4em;
+            font-size: 4.5em;
             font-weight: 900;
             color: #1e40af;
             line-height: 1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .stat-label {
@@ -198,242 +281,380 @@
 
         /* Demo Slide */
         .demo-slide {
-            border: 8px solid #10b981;
+            background: white;
+            padding: 80px 120px;
+            position: relative;
+        }
+
+        .demo-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+        }
+
+        .demo-slide h2 {
+            color: #0f172a;
+            margin-bottom: 40px;
         }
 
         .demo-screenshot {
-            width: 90%;
-            max-height: 65vh;
+            width: 100%;
+            max-height: 70vh;
             object-fit: contain;
-            border: 3px solid #10b981;
-            border-radius: 10px;
-            margin: 20px auto;
-            display: block;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e5e7eb;
         }
 
         .demo-caption {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 1.4em;
-            color: #1f2937;
+            color: #475569;
             font-weight: 600;
         }
 
         /* Tech Stack Slide */
         .tech-slide {
-            border: 8px solid #6366f1;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .tech-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
         }
 
         .tech-slide h2 {
-            color: #4f46e5;
+            color: #4c1d95;
+            margin-bottom: 70px;
         }
 
         .tech-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 50px;
         }
 
         .tech-column h3 {
-            font-size: 2em;
-            margin-bottom: 25px;
-            color: #4f46e5;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #5b21b6;
+            font-weight: 800;
         }
 
         .tech-item {
             background: white;
-            border: 2px solid #6366f1;
-            border-left: 6px solid #4f46e5;
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            border-radius: 5px;
+            padding: 22px 30px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
             font-size: 1.3em;
             color: #1f2937;
             font-weight: 600;
+            border-left: 4px solid #6366f1;
         }
 
         /* Traction Slide */
         .traction-slide {
-            border: 8px solid #9333ea;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .traction-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #9333ea 0%, #a855f7 100%);
         }
 
         .traction-slide h2 {
-            color: #7e22ce;
+            color: #6b21a8;
+            text-align: center;
+            margin-bottom: 80px;
         }
 
         .traction-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
         }
 
         .traction-card {
             background: white;
-            border: 3px solid #9333ea;
-            padding: 35px;
-            border-radius: 10px;
+            padding: 45px 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.12);
             text-align: center;
+            border-top: 5px solid #9333ea;
         }
 
         .traction-icon {
             font-size: 3.5em;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.2));
         }
 
         .traction-value {
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: 900;
             color: #7e22ce;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .traction-label {
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #1f2937;
             font-weight: 700;
         }
 
         /* Team Slide */
         .team-slide {
-            border: 8px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .team-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+        }
+
+        .team-slide h2 {
+            color: #065f46;
+            margin-bottom: 60px;
         }
 
         .team-card {
             background: white;
-            border: 3px solid #10b981;
-            padding: 40px;
-            border-radius: 10px;
-            margin-top: 40px;
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15);
+            border-left: 6px solid #10b981;
         }
 
         .team-name {
-            font-size: 2.5em;
-            font-weight: 700;
+            font-size: 2.8em;
+            font-weight: 800;
             color: #065f46;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .team-title {
-            font-size: 1.6em;
+            font-size: 1.7em;
             color: #dc2626;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: 600;
         }
 
         .team-skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 25px;
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .skill-tag {
-            background: white;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
             border: 2px solid #10b981;
             color: #065f46;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 1em;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1.05em;
             font-weight: 700;
         }
 
         /* CTA Slide */
         .cta-slide {
-            border: 8px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 100px 120px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cta-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
         }
 
         .cta-slide h1 {
-            font-size: 5em;
-            margin-bottom: 30px;
-            color: #10b981;
+            font-size: 4.5em;
+            margin-bottom: 60px;
+            color: #065f46;
+            text-align: center;
         }
 
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            margin-top: 40px;
+            gap: 30px;
         }
 
         .link-box {
             background: white;
-            border: 3px solid #10b981;
-            padding: 25px 40px;
-            border-radius: 10px;
+            padding: 35px 45px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12);
+            border-left: 5px solid #10b981;
         }
 
         .link-label {
-            font-size: 1.1em;
-            color: #4b5563;
+            font-size: 1.2em;
+            color: #475569;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .link-url {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 700;
             color: #10b981;
             text-decoration: none;
+            word-break: break-all;
         }
 
         .warning-note {
             background: #fef3c7;
-            border: 2px solid #f59e0b;
-            padding: 15px 20px;
+            border-left: 4px solid #f59e0b;
+            padding: 18px 25px;
             border-radius: 8px;
-            margin-top: 10px;
-            font-size: 0.95em;
+            margin-top: 15px;
+            font-size: 1.05em;
             color: #92400e;
             font-weight: 600;
         }
 
         /* Competition Slide */
         .competition-slide {
-            border: 8px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 100px 120px;
+            position: relative;
+        }
+
+        .competition-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
         }
 
         .competition-slide h2 {
             color: #065f46;
+            margin-bottom: 60px;
         }
 
         .criteria-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 40px;
+            gap: 30px;
         }
 
         .criteria-item {
             background: white;
-            border: 3px solid #10b981;
-            border-left: 8px solid #f59e0b;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 35px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12);
+            border-left: 5px solid #f59e0b;
         }
 
         .criteria-weight {
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: 900;
             color: #dc2626;
-            margin-bottom: 8px;
-        }
-
-        .criteria-name {
-            font-size: 1.3em;
-            color: #065f46;
-            font-weight: 700;
             margin-bottom: 12px;
         }
 
+        .criteria-name {
+            font-size: 1.5em;
+            color: #065f46;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
         .criteria-check {
-            font-size: 1.1em;
-            color: #1f2937;
+            font-size: 1.15em;
+            color: #475569;
             font-weight: 600;
         }
 
-        /* Page breaks for PDF */
+        /* Thank You Slide */
+        .thankyou-slide {
+            background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+            padding: 100px 120px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .thankyou-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+        }
+
+        .thankyou-slide .logo {
+            font-size: 6em;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(16, 185, 129, 0.2));
+        }
+
+        .thankyou-slide h1 {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15);
+            border-top: 5px solid #10b981;
+        }
+
+        .contact-box p {
+            margin: 15px 0;
+            font-size: 1.4em;
+        }
+
         @media print {
             .reveal .slides section {
                 page-break-after: always;
@@ -450,21 +671,27 @@
             <section class="hero">
                 <div class="logo">🌾</div>
                 <h1>Yonca</h1>
-                <p class="tagline">AI-Powered Agricultural Advisory System<br>for Azerbaijan Farmers</p>
+                <p class="tagline">AI-Powered Agricultural Advisory System for Azerbaijan Farmers</p>
                 <a href="https://rule-based-system-omega.vercel.app/" target="_blank" class="cta">Try Live Demo →</a>
             </section>
 
             <!-- Slide 2: Problem -->
             <section class="problem-slide">
                 <h2>The Problem</h2>
-                <p class="problem-stat">40%</p>
-                <p class="problem-text">of crop yield lost due to poor decision-making</p>
-                <br><br>
-                <p class="problem-stat">0</p>
-                <p class="problem-text">AI tools available in Azerbaijani language</p>
-                <br><br>
-                <p class="problem-stat">100%</p>
-                <p class="problem-text">of farmers rely on intuition vs data</p>
+                <div class="problem-grid">
+                    <div class="problem-box">
+                        <p class="problem-stat">40%</p>
+                        <p class="problem-text">Crop yield lost due to poor decisions</p>
+                    </div>
+                    <div class="problem-box">
+                        <p class="problem-stat">0</p>
+                        <p class="problem-text">AI tools in Azerbaijani language</p>
+                    </div>
+                    <div class="problem-box">
+                        <p class="problem-stat">100%</p>
+                        <p class="problem-text">Farmers rely on intuition vs data</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Slide 3: Solution -->
@@ -540,7 +767,7 @@
 
             <!-- Slide 8: Tech Stack -->
             <section class="tech-slide">
-                <h2>Technology</h2>
+                <h2>Technology Stack</h2>
                 <div class="tech-grid">
                     <div class="tech-column">
                         <h3>Backend</h3>
@@ -554,7 +781,7 @@
                         <div class="tech-item">⚡ Next.js 14</div>
                         <div class="tech-item">🎨 TailwindCSS</div>
                         <div class="tech-item">📱 Progressive Web App</div>
-                        <div class="tech-item">♿ Mobile-First</div>
+                        <div class="tech-item">♿ Mobile-First Design</div>
                     </div>
                 </div>
             </section>
@@ -619,7 +846,7 @@
                 <div class="team-card">
                     <div class="team-name">Ismat Samadov</div>
                     <div class="team-title">Full-Stack Developer & Project Lead</div>
-                    <p style="font-size: 1.2em; color: #4b5563; margin-top: 20px; font-weight: 600;">
+                    <p style="font-size: 1.25em; color: #475569; margin-top: 20px; font-weight: 600;">
                         ~215 hours development time | Architecture, Backend, Frontend, AI Integration, DevOps
                     </p>
                     <div class="team-skills">
@@ -667,19 +894,15 @@
             </section>
 
             <!-- Slide 13: Thank You -->
-            <section class="hero">
+            <section class="thankyou-slide">
                 <div class="logo">🌾</div>
-                <h1 style="font-size: 5em;">Thank You</h1>
-                <br><br>
-                <p style="font-size: 1.8em; color: #4b5563; font-weight: 600;">
-                    <strong style="color: #10b981;">Ismat Samadov</strong><br>
-                    Digital Umbrella MMC - YONCA AI Competition<br>
-                    December 2025
-                </p>
-                <br><br>
-                <p style="font-size: 1.4em; color: #6b7280; font-weight: 600;">
-                    Questions? Contact: ismetsemedov@gmail.com
-                </p>
+                <h1>Thank You</h1>
+                <div class="contact-box">
+                    <p><strong style="color: #10b981; font-size: 1.3em;">Ismat Samadov</strong></p>
+                    <p style="color: #475569;">Digital Umbrella MMC - YONCA AI Competition</p>
+                    <p style="color: #475569;">December 2025</p>
+                    <p style="margin-top: 25px; color: #10b981; font-weight: 700;">ismetsemedov@gmail.com</p>
+                </div>
             </section>
 
         </div>
