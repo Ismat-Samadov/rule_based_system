@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
   title: 'Yonca - Ağıllı Kənd Təsərrüfatı Məsləhətçisi',
@@ -23,6 +24,9 @@ export default function RootLayout({
         </div>
         
         {children}
+        
+        {/* Chatbot Widget */}
+        <ChatWidget />
       </body>
     </html>
   );

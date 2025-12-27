@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.api.routes import router as api_router
+from app.chatbot.routes import router as chatbot_router
 from app.core.config import settings
 from app.services.rule_loader import RuleLoader
 
@@ -50,6 +51,7 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(api_router, prefix="/api/v1")
+app.include_router(chatbot_router, prefix="/api/v1")
 
 
 @app.get("/")

@@ -1,0 +1,373 @@
+{
+  "version": "1.0.0",
+  "language": "az",
+  "description": "Azərbaycan dilində kənd təsərrüfatı chatbot intent-ləri",
+  
+  "intents": [
+    {
+      "intent": "greeting",
+      "patterns": [
+        "salam",
+        "salamlar",
+        "salam aleykum",
+        "həllo",
+        "hello",
+        "hi",
+        "hey",
+        "xoş gördük",
+        "necəsən",
+        "necəsiniz",
+        "nə var nə yox"
+      ],
+      "responses": [
+        "Salam! Mən Yonca - sizin kənd təsərrüfatı məsləhətçinizəm. Sizə necə kömək edə bilərəm?",
+        "Salamlar! Fermer dostum, bu gün sizə necə kömək edim?",
+        "Xoş gördük! Suvarma, gübrələmə, zərərverici və ya digər mövzularda sual verə bilərsiniz."
+      ]
+    },
+    {
+      "intent": "goodbye",
+      "patterns": [
+        "sağ ol",
+        "təşəkkür",
+        "təşəkkürlər",
+        "sağolun",
+        "görüşənədək",
+        "hələlik",
+        "bye",
+        "güle güle"
+      ],
+      "responses": [
+        "Sağ olun! Uğurlu işlər! 🌾",
+        "Hələlik! Fermeriniz üçün ən yaxşısını arzulayıram!",
+        "Görüşənədək! Hər zaman buradayam."
+      ]
+    },
+    {
+      "intent": "help",
+      "patterns": [
+        "kömək",
+        "köməklik",
+        "yardım",
+        "nə edə bilərsən",
+        "necə istifadə edim",
+        "nə bacarırsan",
+        "help"
+      ],
+      "responses": [
+        "Mən sizə bu mövzularda kömək edə bilərəm:\n\n🌾 **Suvarma** - nə vaxt, nə qədər suvarmaq\n🌿 **Gübrələmə** - hansı gübrə, nə qədər\n🐛 **Zərərvericilər** - xəstəlik və zərərverici mübarizəsi\n🌡️ **Hava** - hava şəraitinə görə tövsiyə\n🐄 **Heyvandarlıq** - yemləmə, sağlamlıq\n\nSadəcə sualınızı yazın!"
+      ]
+    },
+    
+    {
+      "intent": "irrigation_when",
+      "patterns": [
+        "nə vaxt suvarmaq",
+        "nə vaxt suvarım",
+        "suvarmaq vaxtıdır",
+        "su vermək lazımdır",
+        "suvarma vaxtı",
+        "su lazımdır",
+        "bitkim susuz qalıb",
+        "yarpaqlar solub",
+        "torpaq qurudub"
+      ],
+      "responses": [
+        "Suvarma vaxtını müəyyən etmək üçün mənə deyin:\n\n1️⃣ Hansı bitki? (buğda, pomidor, üzüm...)\n2️⃣ Hansı mərhələdə? (cücərmə, çiçəkləmə...)\n3️⃣ Torpaq nəmliyi neçə %?\n4️⃣ Hava temperaturu?"
+      ],
+      "action": "ask_irrigation_details"
+    },
+    {
+      "intent": "irrigation_amount",
+      "patterns": [
+        "nə qədər su",
+        "neçə litr su",
+        "suvarma norması",
+        "su miqdarı",
+        "neçə mm su"
+      ],
+      "responses": [
+        "Suvarma miqdarı bitkidən və mərhələdən asılıdır. Ümumi tövsiyələr:\n\n🌾 **Buğda**: 25-35 mm/ha hər suvarmada\n🍅 **Pomidor**: 5-10 L/bitki (mərhələyə görə)\n🍇 **Üzüm**: 40-60 L/tənək\n\nDəqiq tövsiyə üçün bitki və mərhələni deyin."
+      ]
+    },
+    {
+      "intent": "irrigation_method",
+      "patterns": [
+        "damcı suvarma",
+        "suvarma üsulu",
+        "necə suvarmaq",
+        "suvarma sistemi",
+        "ən yaxşı suvarma"
+      ],
+      "responses": [
+        "Suvarma üsulları:\n\n💧 **Damcı suvarma** - ən səmərəli, 30-50% su qənaəti\n🌊 **Şırım suvarma** - ənənəvi, çox su tələb edir\n☔ **Yağmurlama** - böyük sahələr üçün\n\n✅ Tövsiyə: Tərəvəz və meyvə bağları üçün damcı suvarma ideal seçimdir."
+      ]
+    },
+
+    {
+      "intent": "fertilization_when",
+      "patterns": [
+        "nə vaxt gübrələmək",
+        "gübrə vaxtı",
+        "gübrələmə vaxtı",
+        "nə vaxt gübrə verim",
+        "gübrə lazımdır"
+      ],
+      "responses": [
+        "Gübrələmə vaxtı bitkinin mərhələsindən asılıdır:\n\n🌾 **Buğda**: Kollanma + sünbülləmə başlanğıcı\n🍅 **Pomidor**: Köçürmədən sonra + çiçəkləmə + meyvə dövrü\n🍇 **Üzüm**: Tumurcuqlanma + meyvə bağlama + yığımdan sonra\n\nHansı bitki haqqında bilmək istəyirsiniz?"
+      ],
+      "action": "ask_fertilization_details"
+    },
+    {
+      "intent": "fertilization_type",
+      "patterns": [
+        "hansı gübrə",
+        "gübrə növü",
+        "npk nədir",
+        "azot gübrəsi",
+        "fosfor gübrəsi",
+        "kalium gübrəsi",
+        "üzvi gübrə",
+        "peyin gübrəsi"
+      ],
+      "responses": [
+        "Gübrə növləri:\n\n🔵 **Azot (N)** - yarpaq inkişafı (ammonyum nitrat, karbamid)\n🟠 **Fosfor (P)** - kök və çiçək (superfosfat)\n🟢 **Kalium (K)** - meyvə keyfiyyəti (kalium sulfat)\n\n🌿 **NPK gübrələr**: Məsələn 15-15-15 = balanslaşdırılmış\n\n♻️ **Üzvi**: Peyin, kompost (minimum 3 ay kompostlaşdırılmalı!)"
+      ]
+    },
+    {
+      "intent": "fertilization_amount",
+      "patterns": [
+        "nə qədər gübrə",
+        "gübrə miqdarı",
+        "neçə kq gübrə",
+        "gübrə norması"
+      ],
+      "responses": [
+        "Gübrə normaları (təxmini):\n\n🌾 **Buğda** (dekara):\n- Əkin: NPK 15-15-15 → 45-55 kq\n- Kollanma: Ammonyum nitrat → 17-22 kq\n\n🍅 **Pomidor** (dekara):\n- Əkin öncəsi: NPK → 50-60 kq\n- Meyvə dövrü: Kalium sulfat → 20-30 kq\n\nDəqiq tövsiyə üçün torpaq analizinə əsaslanmaq lazımdır."
+      ]
+    },
+
+    {
+      "intent": "pest_identification",
+      "patterns": [
+        "xəstəlik var",
+        "zərərverici var",
+        "yarpaqlar saraldı",
+        "bitkim xəstədir",
+        "ləkələr var",
+        "böcək var",
+        "qurd var",
+        "yarpaqlarda deşiklər"
+      ],
+      "responses": [
+        "Xəstəlik/zərərverici müəyyən etmək üçün:\n\n1️⃣ Hansı bitki?\n2️⃣ Əlamətlər nədir? (ləkə, sarılma, deşik...)\n3️⃣ Harada? (yarpaq, gövdə, kök, meyvə)\n4️⃣ Hava şəraiti? (nəm, isti)\n\nBu məlumatları versəniz, dəqiq diaqnoz qoya bilərəm."
+      ],
+      "action": "ask_pest_details"
+    },
+    {
+      "intent": "pest_treatment",
+      "patterns": [
+        "necə müalicə edim",
+        "hansı dərman",
+        "zərərvericilə mübarizə",
+        "fungisid tövsiyəsi",
+        "insektisid tövsiyəsi",
+        "spreyleme",
+        "çiləmə"
+      ],
+      "responses": [
+        "Müalicə bitkidən və xəstəlikdən asılıdır. Ən çox rast gəlinənlər:\n\n🍄 **Göbələk xəstəlikləri** (mildiu, unlu şeh):\n- Bordo mayesi, Metalaxyl+Mancozeb\n\n🐛 **Həşəratlar** (mənənə, ağ milçək):\n- Neem yağı (üzvi), İmidakloprid\n\n⚠️ Hansı xəstəlik/zərərverici olduğunu dəqiqləşdirsəniz, konkret tövsiyə verərəm."
+      ]
+    },
+    {
+      "intent": "pest_prevention",
+      "patterns": [
+        "xəstəlikdən qorunma",
+        "profilaktika",
+        "necə qoruyum",
+        "qarşısını almaq",
+        "prevention"
+      ],
+      "responses": [
+        "Xəstəlik və zərərverici profilaktikası:\n\n✅ Müqavimətli sortlar seçin\n✅ Toxumu dərmanlamadan əkməyin\n✅ Növbəli əkin tətbiq edin (rotation)\n✅ Bitki qalıqlarını yandırın\n✅ Yarpaqları islatmadan suvarın (damcı)\n✅ Müntəzəm yoxlayın\n✅ Sıxlığı azaldın (hava sirkulyasiyası)\n\nKimyəvi mübarizə son çarədir!"
+      ]
+    },
+
+    {
+      "intent": "weather_hot",
+      "patterns": [
+        "hava çox isti",
+        "isti hava",
+        "istilik",
+        "temperatur yüksəkdir",
+        "35 dərəcə",
+        "40 dərəcə"
+      ],
+      "responses": [
+        "🌡️ İsti hava (>32°C) zamanı TƏCİLİ tədbirlər:\n\n1️⃣ Səhər erkən (05:00-07:00) və ya axşam (19:00+) suvarın\n2️⃣ Suvarma miqdarını 20-30% artırın\n3️⃣ Mulçalama tətbiq edin (torpağı örtün)\n4️⃣ Kölgə şəbəkəsi düşünün\n\n⚠️ Günorta suvarma buxarlanır və bitkilərə zərər verə bilər!"
+      ]
+    },
+    {
+      "intent": "weather_cold",
+      "patterns": [
+        "şaxta",
+        "soyuq",
+        "don",
+        "temperatur aşağıdır",
+        "gecə soyuq"
+      ],
+      "responses": [
+        "❄️ Şaxta/soyuq havada tədbirlər:\n\n1️⃣ Şaxta xəbərdarlığı varsa suvarma artırın (torpaq istiliyi saxlayır)\n2️⃣ Örtük materialı hazırlayın\n3️⃣ Budama etməyin (-5°C-dən aşağı)\n4️⃣ Cavan fidanlara qoruyucu örtük\n\n🌡️ Kritik həddlər:\n- Pomidor: <10°C zərər görür\n- Xiyar: <12°C dayanır\n- Buğda: -15°C-ə dözür (kollanma mərhələsi)"
+      ]
+    },
+    {
+      "intent": "weather_rain",
+      "patterns": [
+        "yağış yağır",
+        "yağış gözlənilir",
+        "yağışdan sonra",
+        "nəm hava"
+      ],
+      "responses": [
+        "🌧️ Yağışlı/nəm hava tövsiyələri:\n\n✅ Suvarmanı dayandırın\n✅ Göbələk xəstəliklərinə diqqət (fitoftora, mildiu)\n✅ Profilaktik fungisid düşünün (yağışdan əvvəl)\n✅ Çiləmə etməyin (yağış yuyar)\n✅ Yığım planını tənzimləyin\n\n⚠️ Yığıma yaxın yağış meyvə keyfiyyətini aşağı sala bilər!"
+      ]
+    },
+
+    {
+      "intent": "livestock_feeding",
+      "patterns": [
+        "heyvan yemləmə",
+        "nə yedirtmək",
+        "yem rasioni",
+        "neçə kq yem",
+        "inək yeməyi",
+        "qoyun yeməyi"
+      ],
+      "responses": [
+        "🐄 Yemləmə tövsiyələri:\n\n**Süd inəyi** (gündəlik):\n- Ot/saman: 8-10 kq\n- Konsentrat yem: 0.4 kq / litr süd\n- Su: 80-100 L\n\n**Qoyun** (gündəlik):\n- Ot: 2-3 kq\n- Arpa/buğda: 0.3-0.5 kq\n- Su: 4-5 L\n\nMərhələyə görə (boğaz, laktasiya) dəyişir. Dəqiqləşdirin?"
+      ]
+    },
+    {
+      "intent": "livestock_health",
+      "patterns": [
+        "heyvan xəstədir",
+        "baytar lazımdır",
+        "peyvənd vaxtı",
+        "heyvan yemirsiz",
+        "süd azalıb"
+      ],
+      "responses": [
+        "🩺 Heyvan sağlamlığı:\n\n⚠️ Xəstəlik əlamətləri varsa:\n- İştaha azalması\n- Temperatur yüksəkliyi\n- Süd keyfiyyəti dəyişimi\n→ Dərhal baytara müraciət edin!\n\n📅 Profilaktika:\n- Peyvənd cədvəlinə əməl edin\n- Hər 3 ayda dərmanlama (qurd)\n- Aylıq ümumi yoxlama\n\nHansı heyvan? Əlamətlər nədir?"
+      ],
+      "action": "ask_livestock_details"
+    },
+    {
+      "intent": "livestock_vaccination",
+      "patterns": [
+        "peyvənd",
+        "vaksinasiya",
+        "nə vaxt peyvənd",
+        "hansı peyvənd"
+      ],
+      "responses": [
+        "💉 Peyvənd cədvəli:\n\n**Mal-qara**:\n- Dabaq (FMD): 6 ayda bir\n- Bruselyoz: İllik\n\n**Qoyun/keçi**:\n- Enterotoksemiya: İllik (yaz)\n- Bruselyoz: İllik\n\n**Quş**:\n- Newcastle: 7, 21, 35 gün, sonra 3 ayda bir\n- Qamboro: 14, 28 gün\n\n📞 Rayonunuzdakı baytar xidməti ilə əlaqə saxlayın."
+      ]
+    },
+
+    {
+      "intent": "harvest_when",
+      "patterns": [
+        "nə vaxt yığım",
+        "yığım vaxtı",
+        "nə vaxt biçmək",
+        "məhsul hazırdır",
+        "yetişib"
+      ],
+      "responses": [
+        "🌾 Yığım vaxtını müəyyən etmək:\n\n**Buğda**:\n- Dən rütubəti: 14-16%\n- Sünbül saralmış, dən bərk\n- Gecikdirmə = dən tökülməsi\n\n**Pomidor**:\n- Rəng tam dönüb\n- Barmaqla basanda yumşaq\n\n**Üzüm**:\n- Şəkərlilik: 18-22 Brix\n- Dadına baxın\n\nHansı məhsul?"
+      ]
+    },
+
+    {
+      "intent": "cost_price",
+      "patterns": [
+        "qiymət",
+        "neçəyə başa gəlir",
+        "xərc",
+        "gübrə qiyməti",
+        "dərman qiyməti"
+      ],
+      "responses": [
+        "💰 Təəssüf ki, dəqiq qiymətlər dəyişkəndir və regiondan asılıdır.\n\nTövsiyə:\n- Yerli kənd təsərrüfatı mağazaları\n- Aqro dilerlərlə əlaqə\n- Fermer kooperativləri\n\nBir neçə yerdən qiymət alın və müqayisə edin!"
+      ]
+    },
+
+    {
+      "intent": "recommendation_request",
+      "patterns": [
+        "tövsiyə ver",
+        "nə etməliyəm",
+        "məsləhət istəyirəm",
+        "bu gün nə edim",
+        "planım nədir"
+      ],
+      "responses": [
+        "Sizə fərdi tövsiyə vermək üçün bu məlumatlara ehtiyacım var:\n\n1️⃣ Ferma tipi? (taxıl, heyvandarlıq, bağ, tərəvəz)\n2️⃣ Hansı bitki/heyvan?\n3️⃣ Hazırkı mərhələ?\n4️⃣ Hava temperaturu?\n5️⃣ Torpaq nəmliyi?\n\nVə ya tam tövsiyə almaq üçün /recommendations əmrindən istifadə edin."
+      ],
+      "action": "collect_recommendation_data"
+    },
+
+    {
+      "intent": "unknown",
+      "patterns": [],
+      "responses": [
+        "Bağışlayın, tam başa düşmədim. Sualınızı başqa cür ifadə edə bilərsinizmi?\n\nMəsələn:\n- 'Pomidoru nə vaxt suvarmalıyam?'\n- 'Yarpaqlar niyə saraldı?'\n- 'Buğdaya hansı gübrə lazımdır?'",
+        "Bu mövzuda məlumatım yoxdur. Suvarma, gübrələmə, zərərverici və ya heyvandarlıq haqqında soruşa bilərsiniz.\n\n/help yazaraq bütün imkanları görə bilərsiniz."
+      ]
+    }
+  ],
+
+  "entities": {
+    "crops": {
+      "buğda": "wheat",
+      "arpa": "barley",
+      "pomidor": "tomato",
+      "xiyar": "cucumber",
+      "kartof": "potato",
+      "bibər": "pepper",
+      "üzüm": "grape",
+      "nar": "pomegranate",
+      "alma": "apple",
+      "əncir": "fig"
+    },
+    "animals": {
+      "inək": "cattle",
+      "mal-qara": "cattle",
+      "qoyun": "sheep",
+      "keçi": "goat",
+      "toyuq": "poultry",
+      "quş": "poultry"
+    },
+    "stages": {
+      "cücərmə": "germination",
+      "kollanma": "tillering",
+      "çiçəkləmə": "flowering",
+      "meyvə": "fruiting",
+      "yetişmə": "maturity"
+    },
+    "issues": {
+      "saralmaq": "yellowing",
+      "solmaq": "wilting",
+      "ləkə": "spots",
+      "qurd": "worm",
+      "böcək": "insect",
+      "mənənə": "aphid"
+    }
+  },
+
+  "quick_replies": {
+    "crop_selection": ["🌾 Buğda", "🍅 Pomidor", "🍇 Üzüm", "🥔 Kartof", "🥒 Xiyar"],
+    "animal_selection": ["🐄 Mal-qara", "🐑 Qoyun", "🐐 Keçi", "🐔 Toyuq"],
+    "problem_type": ["💧 Suvarma", "🌿 Gübrələmə", "🐛 Zərərverici", "🌡️ Hava"]
+  }
+}
