@@ -51,6 +51,15 @@ export default function RecommendationsPage() {
     setLoading(true);
     setError(null);
     try {
+      // Validate crop fields
+      if (['wheat', 'orchard', 'vegetable'].includes(farmType)) {
+        if (!cropContext.crop_type || !cropContext.stage) {
+          setError('Bitki növü və inkişaf mərhələsini seçin');
+          setLoading(false);
+          return;
+        }
+      }
+
       const request: RecommendationRequest = {
         farm_type: farmType,
         region: region,
@@ -59,11 +68,15 @@ export default function RecommendationsPage() {
         crop_context: ['wheat', 'orchard', 'vegetable'].includes(farmType) ? cropContext : undefined,
         livestock_context: farmType === 'livestock' ? livestockContext : undefined,
       };
+
+      console.log('Sending request:', JSON.stringify(request, null, 2));
       const response = await getRecommendations(request);
+      console.log('Received response:', response);
       setResult(response);
       setStep(4);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Xəta baş verdi');
+      console.error('API Error:', err);
+      setError(err instanceof Error ? err.message : 'Xəta baş verdi. Backend API ilə əlaqə yoxdur.');
     } finally {
       setLoading(false);
     }
