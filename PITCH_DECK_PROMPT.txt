@@ -1,0 +1,549 @@
+================================================================================
+COMPREHENSIVE PITCH DECK CREATION PROMPT FOR AI/LLM
+================================================================================
+
+TASK: Create a professional, modern pitch deck presentation (PDF format, 13 slides, 1920x1080 Full HD) for the Yonca Smart Farm Assistant project.
+
+================================================================================
+PROJECT OVERVIEW
+================================================================================
+
+Project Name: Yonca Smart Farm Assistant
+Tagline: AI-Powered Agricultural Advisory System for Azerbaijan Farmers
+Competition: Digital Umbrella MMC - YONCA AI Competition
+Date: December 2025
+
+================================================================================
+DESIGN SPECIFICATIONS
+================================================================================
+
+OVERALL STYLE:
+- Modern, professional startup pitch deck aesthetic
+- Clean card-based layouts with white content cards
+- Soft gradient backgrounds (readable in PDF)
+- Rounded corners (16px radius)
+- Subtle shadows for depth
+- Top accent bars (12px height) on each slide
+- Font: Poppins (weights: 300, 400, 600, 700, 800, 900)
+- Dimensions: 1920x1080 pixels (Full HD)
+- Format: PDF, 13 slides
+
+COLOR PALETTE:
+Primary Green: #10b981 (emerald-500)
+Dark Green: #065f46 (emerald-800)
+Light Green: #059669 (emerald-600)
+Red: #dc2626 (red-600)
+Dark Red: #991b1b (red-800)
+Blue: #2563eb (blue-600)
+Dark Blue: #1e40af (blue-800)
+Purple: #6366f1 (indigo-500)
+Dark Purple: #5b21b6 (purple-800)
+Magenta: #9333ea (purple-600)
+Orange/Amber: #f59e0b (amber-500)
+Text Dark: #1f2937 (gray-800)
+Text Medium: #475569 (slate-600)
+Text Light: #6b7280 (gray-500)
+
+GRADIENT BACKGROUNDS:
+Hero/Solution/Team/Competition: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) - Light green
+Problem: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) - Light red
+Stats: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) - Light blue
+Tech: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) - Light purple
+Traction: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%) - Light purple
+
+TYPOGRAPHY:
+H1: 4.5-5.5em, weight 900, letter-spacing -0.02em
+H2: 3.5em, weight 800, letter-spacing -0.02em
+H3: 1.8-2.2em, weight 700-800
+Body: 1.2-1.6em, weight 400-600
+Stats Numbers: 4.5-5em, weight 900
+
+CARD STYLING:
+Background: white
+Border-radius: 16px
+Box-shadow: 0 8px 30px rgba(color, 0.12)
+Padding: 35-60px
+Border-left or Border-top: 4-6px solid (accent color)
+
+================================================================================
+SLIDE-BY-SLIDE CONTENT & LAYOUT
+================================================================================
+
+---SLIDE 1: HERO---
+Layout: Centered, vertical flex layout
+Background: Light green gradient (#ecfdf5 to #f0fdf4)
+Top Accent Bar: 12px, green gradient (#10b981 to #059669)
+Content:
+  - Logo emoji: 🌾 (7em size, drop-shadow)
+  - Title: "Yonca" (5.5em, green gradient text effect)
+  - Tagline: "AI-Powered Agricultural Advisory System for Azerbaijan Farmers" (1.6em, dark green #065f46)
+  - CTA Button: "Try Live Demo →"
+    - Green gradient background (#10b981 to #059669)
+    - White text, 1.3em
+    - Padding: 22px 60px
+    - Border-radius: 12px
+    - Box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3)
+    - Link: https://rule-based-system-omega.vercel.app/
+
+---SLIDE 2: PROBLEM---
+Layout: 3-column grid
+Background: Light red gradient (#fef2f2 to #fee2e2)
+Top Accent Bar: 12px, red gradient (#dc2626 to #ef4444)
+Title: "The Problem" (3.5em, dark red #991b1b, margin-bottom 70px)
+Grid Gap: 40px
+Each Problem Box:
+  - White background
+  - Border-radius: 16px
+  - Border-top: 5px solid #dc2626
+  - Padding: 45px 35px
+  - Box-shadow: 0 8px 30px rgba(220, 38, 38, 0.12)
+  - Center aligned
+Problem 1:
+  - Stat: "40%" (5em, red #dc2626, weight 900)
+  - Text: "Crop yield lost due to poor decisions" (1.3em, #1f2937, weight 600)
+Problem 2:
+  - Stat: "0" (5em, red #dc2626, weight 900)
+  - Text: "AI tools in Azerbaijani language" (1.3em, #1f2937, weight 600)
+Problem 3:
+  - Stat: "100%" (5em, red #dc2626, weight 900)
+  - Text: "Farmers rely on intuition vs data" (1.3em, #1f2937, weight 600)
+
+---SLIDE 3: SOLUTION---
+Layout: 2x2 grid
+Background: Light green gradient (#ecfdf5 to #d1fae5)
+Top Accent Bar: 12px, green gradient (#10b981 to #059669)
+Title: "Our Solution" (3.5em, dark green #065f46, margin-bottom 70px)
+Grid Gap: 35px
+Each Solution Card:
+  - White background
+  - Border-radius: 16px
+  - Border-left: 5px solid #10b981
+  - Padding: 40px
+  - Box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12)
+Card 1:
+  - Icon: ⚙️ (3.5em, drop-shadow)
+  - Title: "127 Expert Rules" (1.7em, #065f46, weight 700)
+  - Description: "Scenario-based recommendations for irrigation, fertilization, pest control, and harvest timing" (1.15em, #475569)
+Card 2:
+  - Icon: 🤖 (3.5em, drop-shadow)
+  - Title: "AI Chatbot" (1.7em, #065f46, weight 700)
+  - Description: "24/7 Azerbaijani agricultural assistant powered by Google Gemini AI" (1.15em, #475569)
+Card 3:
+  - Icon: 📅 (3.5em, drop-shadow)
+  - Title: "Daily Planning" (1.7em, #065f46, weight 700)
+  - Description: "Automated schedule generation based on weather, crop stage, and farm type" (1.15em, #475569)
+Card 4:
+  - Icon: 🔒 (3.5em, drop-shadow)
+  - Title: "100% Safe" (1.7em, #065f46, weight 700)
+  - Description: "No real data required - fully synthetic dataset for privacy protection" (1.15em, #475569)
+
+---SLIDE 4: STATS---
+Layout: 4-column grid
+Background: Light blue gradient (#eff6ff to #dbeafe)
+Top Accent Bar: 12px, blue gradient (#2563eb to #3b82f6)
+Title: "By The Numbers" (3.5em, dark blue #1e40af, centered, margin-bottom 80px)
+Grid Gap: 35px
+Each Stat Box:
+  - White background
+  - Border-radius: 16px
+  - Border-top: 5px solid #2563eb
+  - Padding: 50px 30px
+  - Box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12)
+  - Center aligned
+Stat 1:
+  - Number: "127" (4.5em, blue #1e40af, weight 900)
+  - Label: "Expert Rules" (1.3em, #1f2937, weight 700)
+Stat 2:
+  - Number: "5" (4.5em, blue #1e40af, weight 900)
+  - Label: "Farm Types" (1.3em, #1f2937, weight 700)
+Stat 3:
+  - Number: "90%+" (4.5em, blue #1e40af, weight 900)
+  - Label: "Accuracy" (1.3em, #1f2937, weight 700)
+Stat 4:
+  - Number: "100%" (4.5em, blue #1e40af, weight 900)
+  - Label: "Synthetic Data" (1.3em, #1f2937, weight 700)
+
+---SLIDE 5: DEMO - LANDING---
+Layout: Single column, centered
+Background: White
+Top Accent Bar: 12px, gradient (#10b981 to #3b82f6)
+Padding: 80px 120px
+Title: "User Experience" (3.5em, #0f172a, margin-bottom 40px)
+Content:
+  - Screenshot: Landing page screenshot
+    - Border-radius: 16px
+    - Box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15)
+    - Border: 1px solid #e5e7eb
+    - Max-height: 70vh
+  - Caption: "Clean, intuitive interface in Azerbaijani language" (1.4em, #475569, weight 600, centered, margin-top 30px)
+Note: Screenshot should show the landing page from docs/screenshots/landing.png
+
+---SLIDE 6: DEMO - RECOMMENDATIONS---
+Layout: Single column, centered
+Background: White
+Top Accent Bar: 12px, gradient (#10b981 to #3b82f6)
+Padding: 80px 120px
+Title: "Smart Recommendations" (3.5em, #0f172a, margin-bottom 40px)
+Content:
+  - Screenshot: Recommendations page screenshot
+    - Border-radius: 16px
+    - Box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15)
+    - Border: 1px solid #e5e7eb
+    - Max-height: 70vh
+  - Caption: "Priority-based actionable advice with specific numbers" (1.4em, #475569, weight 600, centered, margin-top 30px)
+Note: Screenshot should show recommendations from docs/screenshots/step4-results-critical.png
+
+---SLIDE 7: DEMO - CHATBOT---
+Layout: Single column, centered
+Background: White
+Top Accent Bar: 12px, gradient (#10b981 to #3b82f6)
+Padding: 80px 120px
+Title: "AI Assistant" (3.5em, #0f172a, margin-bottom 40px)
+Content:
+  - Screenshot: Chatbot screenshot
+    - Border-radius: 16px
+    - Box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15)
+    - Border: 1px solid #e5e7eb
+    - Max-height: 70vh
+  - Caption: "Real-time answers to farming questions in Azerbaijani" (1.4em, #475569, weight 600, centered, margin-top 30px)
+Note: Screenshot should show chatbot from docs/screenshots/chatbot.png
+
+---SLIDE 8: TECH STACK---
+Layout: 2-column grid
+Background: Light purple gradient (#f5f3ff to #ede9fe)
+Top Accent Bar: 12px, purple gradient (#6366f1 to #8b5cf6)
+Padding: 100px 120px
+Title: "Technology Stack" (3.5em, dark purple #4c1d95, margin-bottom 70px)
+Grid Gap: 50px
+Column 1 - Backend:
+  - Header: "Backend" (2.2em, purple #5b21b6, weight 800, margin-bottom 30px)
+  - Items (each):
+    - White background
+    - Border-radius: 12px
+    - Border-left: 4px solid #6366f1
+    - Padding: 22px 30px
+    - Box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1)
+    - Margin-bottom: 18px
+    - Font: 1.3em, #1f2937, weight 600
+  - Item 1: "🐍 Python + FastAPI"
+  - Item 2: "🤖 Google Gemini AI"
+  - Item 3: "🌦️ Weather APIs"
+  - Item 4: "📊 Rule Engine"
+Column 2 - Frontend:
+  - Header: "Frontend" (2.2em, purple #5b21b6, weight 800, margin-bottom 30px)
+  - Items (same styling as backend):
+  - Item 1: "⚡ Next.js 14"
+  - Item 2: "🎨 TailwindCSS"
+  - Item 3: "📱 Progressive Web App"
+  - Item 4: "♿ Mobile-First Design"
+
+---SLIDE 9: TRACTION---
+Layout: 3-column grid
+Background: Light purple gradient (#faf5ff to #f3e8ff)
+Top Accent Bar: 12px, purple gradient (#9333ea to #a855f7)
+Padding: 100px 120px
+Title: "Traction" (3.5em, dark purple #6b21a8, centered, margin-bottom 80px)
+Grid Gap: 40px
+Each Traction Card:
+  - White background
+  - Border-radius: 16px
+  - Border-top: 5px solid #9333ea
+  - Padding: 45px 35px
+  - Box-shadow: 0 8px 30px rgba(147, 51, 234, 0.12)
+  - Center aligned
+Card 1:
+  - Icon: 🚀 (3.5em, drop-shadow)
+  - Value: "Live" (3.5em, purple #7e22ce, weight 900)
+  - Label: "Deployed & Tested" (1.3em, #1f2937, weight 700)
+Card 2:
+  - Icon: ⚡ (3.5em, drop-shadow)
+  - Value: "<2s" (3.5em, purple #7e22ce, weight 900)
+  - Label: "Load Time" (1.3em, #1f2937, weight 700)
+Card 3:
+  - Icon: 📖 (3.5em, drop-shadow)
+  - Value: "2,216" (3.5em, purple #7e22ce, weight 900)
+  - Label: "Lines of Docs" (1.3em, #1f2937, weight 700)
+
+---SLIDE 10: COMPETITION CRITERIA---
+Layout: 2-column grid (5 items total, one row has single merged item)
+Background: Light green gradient (#ecfdf5 to #d1fae5)
+Top Accent Bar: 12px, green gradient (#10b981 to #059669)
+Padding: 100px 120px
+Title: "Competition Criteria: 100/100" (3.5em, dark green #065f46, margin-bottom 60px)
+Grid Gap: 30px
+Each Criteria Card:
+  - White background
+  - Border-radius: 16px
+  - Border-left: 5px solid #f59e0b (orange)
+  - Padding: 35px 40px
+  - Box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12)
+Criteria 1:
+  - Weight: "30%" (2.2em, red #dc2626, weight 900)
+  - Name: "Innovation" (1.5em, green #065f46, weight 700)
+  - Check: "✓ Hybrid AI + Rules Architecture" (1.15em, #475569, weight 600)
+Criteria 2:
+  - Weight: "25%" (2.2em, red #dc2626, weight 900)
+  - Name: "Accuracy" (1.5em, green #065f46, weight 700)
+  - Check: "✓ 127 Deterministic Rules" (1.15em, #475569, weight 600)
+Criteria 3:
+  - Weight: "20%" (2.2em, red #dc2626, weight 900)
+  - Name: "UX Compatibility" (1.5em, green #065f46, weight 700)
+  - Check: "✓ Mobile-First, Azerbaijani" (1.15em, #475569, weight 600)
+Criteria 4:
+  - Weight: "15%" (2.2em, red #dc2626, weight 900)
+  - Name: "Data Safety" (1.5em, green #065f46, weight 700)
+  - Check: "✓ 100% Synthetic Data" (1.15em, #475569, weight 600)
+Criteria 5:
+  - Weight: "10%" (2.2em, red #dc2626, weight 900)
+  - Name: "Team Experience" (1.5em, green #065f46, weight 700)
+  - Check: "✓ Full-Stack + AI Expertise" (1.15em, #475569, weight 600)
+
+---SLIDE 11: TEAM---
+Layout: Single column with card
+Background: Light green gradient (#ecfdf5 to #d1fae5)
+Top Accent Bar: 12px, green gradient (#10b981 to #059669)
+Padding: 100px 120px
+Title: "Team" (3.5em, dark green #065f46, margin-bottom 60px)
+Team Card:
+  - White background
+  - Border-radius: 16px
+  - Border-left: 6px solid #10b981
+  - Padding: 50px 60px
+  - Box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15)
+Content:
+  - Name: "Ismat Samadov" (2.8em, dark green #065f46, weight 800)
+  - Title: "Full-Stack Developer & Project Lead" (1.7em, red #dc2626, weight 600)
+  - Description: "~215 hours development time | Architecture, Backend, Frontend, AI Integration, DevOps" (1.25em, #475569, weight 600)
+  - Skills (flex wrap, gap 15px):
+    Each skill tag:
+    - Background: light green gradient (#ecfdf5 to #d1fae5)
+    - Border: 2px solid #10b981
+    - Color: dark green #065f46
+    - Padding: 12px 24px
+    - Border-radius: 8px
+    - Font: 1.05em, weight 700
+    Skills: Python, FastAPI, Next.js, TypeScript, Google Gemini AI, TailwindCSS, Vercel, Render
+
+---SLIDE 12: LINKS---
+Layout: Vertical stack
+Background: Light green gradient (#ecfdf5 to #d1fae5)
+Top Accent Bar: 12px, gradient (#10b981 to #3b82f6)
+Padding: 100px 120px
+Title: "Try It Now" (4.5em, dark green #065f46, centered, margin-bottom 60px)
+Links Container (gap 30px):
+Link Box 1:
+  - White background
+  - Border-radius: 16px
+  - Border-left: 5px solid #10b981
+  - Padding: 35px 45px
+  - Box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12)
+  - Label: "🌐 Frontend Demo" (1.2em, #475569, weight 600)
+  - URL: "rule-based-system-omega.vercel.app" (1.6em, green #10b981, weight 700)
+  - Full link: https://rule-based-system-omega.vercel.app/
+Link Box 2:
+  - Same styling as Box 1
+  - Label: "⚙️ Backend API" (1.2em, #475569, weight 600)
+  - URL: "rule-based-system.onrender.com" (1.6em, green #10b981, weight 700)
+  - Full link: https://rule-based-system.onrender.com
+  - Warning Note:
+    - Background: #fef3c7 (amber-100)
+    - Border-left: 4px solid #f59e0b (amber-500)
+    - Padding: 18px 25px
+    - Border-radius: 8px
+    - Margin-top: 15px
+    - Text: "⚠️ First request may take 4-5 minutes (free tier cold start)" (1.05em, brown #92400e, weight 600)
+Link Box 3:
+  - Same styling as Box 1
+  - Label: "💻 Source Code" (1.2em, #475569, weight 600)
+  - URL: "github.com/science-analyse/rule_based_system" (1.6em, green #10b981, weight 700)
+  - Full link: https://github.com/science-analyse/rule_based_system
+
+---SLIDE 13: THANK YOU---
+Layout: Centered, vertical flex
+Background: Light green gradient (#ecfdf5 to #f0fdf4)
+Top Accent Bar: 12px, green gradient (#10b981 to #059669)
+Padding: 100px 120px
+Content:
+  - Logo emoji: 🌾 (6em, drop-shadow)
+  - Title: "Thank You" (5em, green gradient text effect, margin-bottom 50px)
+  - Contact Box:
+    - White background
+    - Border-radius: 16px
+    - Border-top: 5px solid #10b981
+    - Padding: 40px 60px
+    - Box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15)
+    Content:
+    - Name: "Ismat Samadov" (1.3em multiplier, green #10b981, weight 700)
+    - Subtitle: "Digital Umbrella MMC - YONCA AI Competition" (#475569)
+    - Date: "December 2025" (#475569)
+    - Email: "ismetsemedov@gmail.com" (green #10b981, weight 700, margin-top 25px)
+    All text: 1.4em base size
+
+================================================================================
+KEY TECHNICAL DETAILS
+================================================================================
+
+SYSTEM ARCHITECTURE:
+- Hybrid approach: 127 rule-based deterministic rules + AI chatbot
+- Backend: Python, FastAPI framework
+- AI: Google Gemini Flash model (free tier)
+- Frontend: Next.js 14, React, TypeScript
+- Styling: TailwindCSS
+- Deployment: Vercel (frontend), Render (backend - free tier with cold start)
+- Progressive Web App (PWA) capabilities
+- Mobile-first responsive design
+
+RULE ENGINE:
+- 127 total expert rules across 18 JSON files
+- 5 farm types supported: Vegetables, Fruits, Grains, Livestock, Mixed
+- 4 priority levels: CRITICAL, HIGH, MEDIUM, LOW
+- Covers: Irrigation, Fertilization, Pest Control, Harvest Timing
+- 100% synthetic data for privacy
+
+DATA SPECIFICATIONS:
+- Expert Rules: 127
+- Farm Types: 5
+- JSON Rule Files: 18
+- Target Accuracy: 90%+ (rule-based deterministic logic)
+- Data Type: 100% synthetic
+- Documentation: 2,216 lines
+- Development Time: ~215 hours
+- Load Time: <2 seconds (frontend)
+- Backend Cold Start: 4-5 minutes (first request on free tier)
+
+FEATURES:
+1. Daily farm planning based on weather, crop stage, farm type
+2. AI chatbot in Azerbaijani language (24/7 availability)
+3. Priority-based recommendation system
+4. Real-time weather integration
+5. Scenario-based expert rules
+6. Mobile-optimized interface
+
+================================================================================
+DEPLOYMENT INFORMATION
+================================================================================
+
+LIVE URLS:
+Frontend Demo: https://rule-based-system-omega.vercel.app/
+Backend API: https://rule-based-system.onrender.com
+GitHub Repository: https://github.com/science-analyse/rule_based_system
+
+IMPORTANT NOTES:
+- Backend is on Render free tier: First request takes 4-5 minutes to wake up (cold start)
+- After wake up, backend responds quickly
+- Frontend is always fast (<2s load time) on Vercel
+- All code is open source on GitHub
+
+================================================================================
+COMPETITION ALIGNMENT
+================================================================================
+
+Competition: Digital Umbrella MMC - YONCA AI Competition
+Organizer: Digital Umbrella MMC
+Project: YONCA AI əsaslı gündəlik təsərrüfat planlayıcısı (YONCA AI-based daily farm planner)
+
+CRITERIA BREAKDOWN (100/100):
+1. Innovation (30%): Hybrid AI + Rules Architecture - unique combination of deterministic rules and AI chatbot
+2. Accuracy (25%): 127 Deterministic Rules - rule-based logic for high accuracy
+3. UX Compatibility (20%): Mobile-First design, full Azerbaijani language support
+4. Data Safety (15%): 100% Synthetic Data - no real farmer data used, complete privacy
+5. Team Experience (10%): Full-Stack development expertise, AI integration, 215+ hours invested
+
+================================================================================
+TEAM INFORMATION
+================================================================================
+
+Team Lead: Ismat Samadov
+Role: Full-Stack Developer & Project Lead
+Email: ismetsemedov@gmail.com
+Responsibilities: Architecture, Backend, Frontend, AI Integration, DevOps
+Development Time: ~215 hours
+Skills: Python, FastAPI, Next.js, TypeScript, Google Gemini AI, TailwindCSS, Vercel, Render
+
+================================================================================
+OUTPUT FORMAT REQUIREMENTS
+================================================================================
+
+1. Generate as PDF file
+2. Dimensions: 1920x1080 pixels (Full HD, landscape)
+3. Total slides: 13
+4. Ensure all text is readable (dark text on light backgrounds)
+5. Use light gradient backgrounds (will print well)
+6. Include all emojis/icons as specified
+7. Maintain professional spacing and padding
+8. Use drop shadows and borders as specified
+9. Export with high quality (no compression artifacts)
+10. File size target: 3-5 MB
+
+================================================================================
+DESIGN TIPS FOR AI
+================================================================================
+
+1. Use light pastel gradient backgrounds (they print better than dark)
+2. Keep text dark (#1f2937, #475569) on light backgrounds
+3. Use white cards with subtle shadows for depth
+4. Add 12px colored accent bars at top of each slide for visual consistency
+5. Use border-left or border-top accents (4-6px) for emphasis
+6. Round all corners (16px radius for cards, 12px for buttons)
+7. Use drop-shadows on emojis/icons for depth effect
+8. Maintain generous padding (80-120px on slides)
+9. Use grid layouts for organized content presentation
+10. Apply gradient text effects sparingly (only on hero/thank you slides)
+
+================================================================================
+ADDITIONAL CONTEXT
+================================================================================
+
+PROBLEM BEING SOLVED:
+- 40% of crop yield is lost in Azerbaijan due to poor farming decisions
+- No AI tools available in Azerbaijani language for farmers
+- 100% of farmers rely on intuition instead of data-driven decisions
+- Lack of accessible agricultural expertise in rural areas
+
+SOLUTION PROVIDED:
+- Automated daily farm planning using 127 expert rules
+- AI chatbot providing 24/7 agricultural advice in Azerbaijani
+- Weather-integrated recommendations
+- Priority-based task scheduling
+- Accessible via web (PWA) from any device
+
+TARGET USERS:
+- Small to medium farmers in Azerbaijan
+- Agricultural cooperatives
+- Farm managers
+- Agricultural students and educators
+
+COMPETITIVE ADVANTAGES:
+- First Azerbaijani language agricultural AI system
+- Hybrid approach (rules + AI) for accuracy and flexibility
+- 100% privacy-preserving (synthetic data)
+- Free to use, accessible on any device
+- Open source code for transparency
+
+================================================================================
+FINAL CHECKLIST
+================================================================================
+
+Before submitting, ensure:
+[ ] All 13 slides are created
+[ ] All text is in English
+[ ] All URLs are included and correct
+[ ] All numbers/stats are accurate
+[ ] Color palette is consistent
+[ ] Typography is readable and professional
+[ ] Gradients are subtle and print-friendly
+[ ] All emojis/icons are included
+[ ] Shadows and borders are applied
+[ ] Contact information is complete
+[ ] PDF is 1920x1080 Full HD
+[ ] File size is 3-5 MB
+[ ] All slides have top accent bars
+[ ] White cards are used for content
+[ ] Spacing and padding is generous
+[ ] Overall design is modern and professional
+
+================================================================================
+END OF PROMPT
+================================================================================
+
+This prompt contains all specifications needed to recreate the Yonca Smart Farm Assistant pitch deck presentation. Use this with any AI/LLM tool (Midjourney, DALL-E, Figma AI, Canva AI, etc.) or design software to generate the presentation.
