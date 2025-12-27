@@ -4,8 +4,19 @@ import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
   title: 'Yonca - Ağıllı Kənd Təsərrüfatı Məsləhətçisi',
-  description: 'Azərbaycan fermerləri üçün qayda əsaslı kənd təsərrüfatı tövsiyə sistemi',
-  keywords: ['kənd təsərrüfatı', 'fermer', 'Azərbaycan', 'suvarma', 'gübrələmə', 'tövsiyə'],
+  description: 'Azərbaycan fermerləri üçün qayda əsaslı kənd təsərrüfatı tövsiyə sistemi. 127+ ağıllı qayda ilə suvarma, gübrələmə və zərərverici idarəetməsi.',
+  keywords: ['kənd təsərrüfatı', 'fermer', 'Azərbaycan', 'suvarma', 'gübrələmə', 'tövsiyə', 'heyvandarlıq', 'bağçılıq'],
+  authors: [{ name: 'Yonca Team' }],
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  themeColor: '#10b981',
 };
 
 export default function RootLayout({
