@@ -167,6 +167,33 @@ export async function searchRules(query: string): Promise<any> {
   return response.json();
 }
 
+/**
+ * Auto-fetch weather based on IP location (backend-first approach)
+ */
+export interface AutoWeatherResult {
+  temperature: number;
+  humidity: number;
+  rainfall_last_24h: number;
+  wind_speed: number;
+  frost_warning: boolean;
+  location: {
+    city: string;
+    country: string;
+    region: string;
+    latitude: number;
+    longitude: number;
+  };
+  region: string;
+}
+
+export async function autoFetchWeather(): Promise<AutoWeatherResult> {
+  const response = await fetch(`${API_BASE_URL}/api/v1/weather/auto`);
+  if (!response.ok) {
+    throw new Error(`Weather API error: ${response.status}`);
+  }
+  return response.json();
+}
+
 export async function getScenarios(farmType: string): Promise<any> {
   const response = await fetch(`${API_BASE_URL}/api/v1/scenarios/${farmType}`);
   if (!response.ok) {

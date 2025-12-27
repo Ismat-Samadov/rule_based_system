@@ -390,7 +390,49 @@ No authentication required (public API)
 
 ---
 
-#### 5. Other Endpoints
+####5. Auto-Fetch Weather (IP-Based)
+
+**GET** `/api/v1/weather/auto`
+
+**Purpose**: Automatically detect user location and fetch real-time weather to reduce manual input.
+
+**Real Response**:
+```json
+{
+  "temperature": 8,
+  "humidity": 63,
+  "rainfall_last_24h": 0,
+  "wind_speed": 26,
+  "frost_warning": false,
+  "location": {
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "region": "Baku City",
+    "latitude": 40.4093,
+    "longitude": 49.8671
+  },
+  "region": "aran"
+}
+```
+
+**Architecture** (Backend-First for Security):
+```
+User → Frontend → Backend → IP API (ipapi.co) → Weather API (open-meteo.com)
+```
+
+**Why Backend-First?**
+- ✅ No API keys exposed to users
+- ✅ Rate limiting control
+- ✅ Caching capability
+- ✅ Graceful fallback to manual input
+
+**APIs Used** (100% Free, No Auth):
+- **IP Geolocation**: https://ipapi.co
+- **Weather Data**: https://open-meteo.com
+
+---
+
+#### 6. Other Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|

@@ -10,6 +10,7 @@ import RecommendationCard from '@/components/RecommendationCard';
 import DailySchedule from '@/components/DailySchedule';
 import {
   getRecommendations,
+  autoFetchWeather,
   REGIONS,
   CROP_STAGES,
   ANIMAL_TYPES,
@@ -20,7 +21,6 @@ import {
   type RecommendationRequest,
   type RecommendationResponse
 } from '@/lib/api';
-import { autoFetchWeather } from '@/lib/weather';
 
 const FARM_TYPES = [
   { id: 'wheat', name_az: 'Taxıl təsərrüfatı', description_az: 'Buğda, arpa' },
