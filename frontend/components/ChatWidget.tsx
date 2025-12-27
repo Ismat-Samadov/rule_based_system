@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
 import clsx from 'clsx';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
   id: string;
@@ -103,13 +105,6 @@ export default function ChatWidget() {
     sendMessage(reply);
   };
 
-  const formatMessage = (content: string) => {
-    // Convert markdown-like formatting
-    return content
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\n/g, '<br />');
-  };
-
   return (
     <>
       {/* Chat Toggle Button */}
@@ -181,10 +176,15 @@ export default function ChatWidget() {
                       ? 'bg-sky-500 text-white rounded-br-md'
                       : 'bg-white border border-earth-200 text-earth-700 rounded-bl-md shadow-sm'
                   )}>
-                    <div 
-                      className="text-sm leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: formatMessage(message.content) }}
-                    />
+                    <div className="text-sm leading-relaxed prose prose-sm max-w-none prose-headings:mt-2 prose-headings:mb-1 prose-h3:text-base prose-h3:font-semibold prose-p:my-1 prose-ul:my-1 prose-li:my-0 prose-table:text-xs prose-th:p-2 prose-td:p-2 prose-strong:font-semibold">
+                      {message.role === 'bot' ? (
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {message.content}
+                        </ReactMarkdown>
+                      ) : (
+                        <p className="whitespace-pre-wrap">{message.content}</p>
+                      )}
+                    </div>
                     <div className={clsx(
                       'text-xs mt-1',
                       message.role === 'user' ? 'text-sky-200' : 'text-earth-400'
