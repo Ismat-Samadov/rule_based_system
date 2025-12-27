@@ -5,6 +5,32 @@
 [![Backend](https://img.shields.io/badge/Backend-Live-success)](https://rule-based-system.onrender.com)
 [![API Docs](https://img.shields.io/badge/API-Docs-blue)](https://rule-based-system.onrender.com/docs)
 [![Frontend](https://img.shields.io/badge/Frontend-Vercel-black)](https://your-frontend-url.vercel.app)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-Hackathon_Project-orange)](https://github.com)
+
+## 📑 Table of Contents
+
+- [🚀 Live Deployment](#-live-deployment)
+- [📊 System Overview](#-system-overview)
+- [🏗️ Architecture](#️-architecture)
+  - [System Architecture Diagram](#system-architecture-diagram)
+  - [Data Flow Diagram](#data-flow-diagram)
+- [🚀 Deployment Guide](#-deployment-guide)
+  - [Backend Deployment (Render)](#backend-deployment-render)
+  - [Frontend Deployment (Vercel)](#frontend-deployment-vercel)
+- [🔑 Environment Variables Reference](#-environment-variables-reference)
+- [📡 API Reference](#-api-reference)
+- [📁 Project Structure](#-project-structure)
+  - [Rule Evaluation Flow](#rule-evaluation-flow)
+- [🖼️ Frontend Screenshots](#️-frontend-screenshots)
+- [💻 Local Development](#-local-development)
+- [🧪 Testing the API](#-testing-the-api)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [📊 Farm Types & Rules](#-farm-types--rules)
+- [🌍 Supported Regions](#-supported-regions)
 
 ---
 
@@ -37,32 +63,176 @@
 
 ## 🏗️ Architecture
 
+### System Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        A[User Browser]
+        B[Next.js 14 Frontend]
+        C[TailwindCSS UI]
+    end
+
+    subgraph "API Layer - Vercel"
+        B --> D[API Client]
+        D --> E[Auto Weather Fetch]
+        D --> F[Recommendation Wizard]
+        D --> G[Chatbot Interface]
+    end
+
+    subgraph "Backend Layer - Render"
+        H[FastAPI Server]
+        I[Rule Engine]
+        J[Gemini AI Chatbot]
+        K[Weather Service]
+
+        E --> K
+        F --> H
+        G --> J
+
+        H --> I
+    end
+
+    subgraph "Data Layer"
+        L[(127 Rules JSON)]
+        M[(Constants & Thresholds)]
+        N[(Farm Profiles)]
+        O[(Region Data)]
+
+        I --> L
+        I --> M
+        I --> N
+        I --> O
+    end
+
+    subgraph "External APIs"
+        P[Google Gemini AI]
+        Q[Open-Meteo Weather]
+        R[ipapi.co Geolocation]
+
+        J --> P
+        K --> Q
+        K --> R
+    end
+
+    A --> B
+    C --> B
+
+    style A fill:#e3f2fd
+    style B fill:#c8e6c9
+    style H fill:#fff9c4
+    style I fill:#ffccbc
+    style J fill:#f8bbd0
+    style L fill:#d1c4e9
+    style P fill:#ffab91
+    style Q fill:#81d4fa
 ```
-┌─────────────────────────────────────────────────────┐
-│  Frontend (Next.js 14 + TypeScript)                 │
-│  Deploy: Vercel                                     │
-│  URL: https://your-app.vercel.app                   │
-└────────────────┬────────────────────────────────────┘
-                 │
-                 │ API Calls (NEXT_PUBLIC_API_URL)
-                 │
-┌────────────────▼────────────────────────────────────┐
-│  Backend (FastAPI + Python 3.10)                    │
-│  Deploy: Render                                     │
-│  URL: https://rule-based-system.onrender.com        │
-└────────────────┬────────────────────────────────────┘
-                 │
-                 │ Rule Engine + JSON Data
-                 │
-┌────────────────▼────────────────────────────────────┐
-│  127 Agricultural Rules (JSON)                      │
-│  Constants, Profiles, Thresholds                    │
-└─────────────────────────────────────────────────────┘
+
+### Data Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant B as Backend API
+    participant RE as Rule Engine
+    participant DB as JSON Rules
+    participant AI as Gemini AI
+
+    U->>F: Enter farm details
+    F->>F: Auto-fetch weather?
+    alt Auto-fetch enabled
+        F->>B: GET /api/v1/weather/auto
+        B->>B: Detect IP location
+        B->>B: Fetch weather data
+        B-->>F: Weather + Region data
+    end
+
+    U->>F: Submit recommendation request
+    F->>B: POST /api/v1/recommendations
+
+    B->>RE: Evaluate rules
+    RE->>DB: Load farm-specific rules
+    DB-->>RE: 127 rules (filtered by farm type)
+
+    RE->>RE: Build context from request
+    RE->>RE: Evaluate conditions (AND/OR logic)
+    RE->>RE: Match rules & calculate urgency
+    RE->>RE: Group by priority (critical/high/medium/low)
+    RE->>RE: Generate daily schedule
+    RE->>RE: Create summary
+
+    RE-->>B: Recommendation response
+    B-->>F: JSON response with recommendations
+    F->>F: Render priority cards
+    F->>F: Display daily schedule
+    F-->>U: Show recommendations
+
+    opt User opens chatbot
+        U->>F: Ask question in Azerbaijani
+        F->>B: POST /api/v1/chat/message
+        B->>AI: Send to Gemini with system prompt
+        AI-->>B: AI-generated response
+        B->>B: Generate quick replies
+        B-->>F: Response + quick replies
+        F-->>U: Display chat message
+    end
 ```
 
 ---
 
 ## 🚀 Deployment Guide
+
+### Deployment Architecture
+
+```mermaid
+graph LR
+    subgraph "GitHub Repository"
+        A[Main Branch]
+    end
+
+    subgraph "Backend - Render"
+        B[Docker Build]
+        C[FastAPI Server]
+        D[Auto Deploy on Push]
+        E[Environment Variables]
+
+        A -->|Auto Deploy| B
+        B --> C
+        E --> C
+        D --> B
+    end
+
+    subgraph "Frontend - Vercel"
+        F[Next.js Build]
+        G[Static Generation]
+        H[Edge Deployment]
+        I[Environment Variables]
+
+        A -->|Auto Deploy| F
+        F --> G
+        G --> H
+        I --> H
+    end
+
+    subgraph "External Services"
+        J[Google Gemini AI]
+        K[Open-Meteo API]
+        L[ipapi.co]
+    end
+
+    C --> J
+    C --> K
+    C --> L
+    H --> C
+
+    style A fill:#e1bee7
+    style C fill:#fff59d
+    style H fill:#80deea
+    style J fill:#ffab91
+    style K fill:#a5d6a7
+    style L fill:#90caf9
+```
 
 ### Backend Deployment (Render)
 
@@ -650,6 +820,76 @@ rule_based_system/
 │
 └── docs/
     └── screenshots/          # UI screenshots
+```
+
+### Rule Evaluation Flow
+
+```mermaid
+flowchart TD
+    Start([User Request]) --> LoadRules[Load Farm-Specific Rules]
+    LoadRules --> BuildContext[Build Context Dictionary]
+
+    BuildContext --> Context{Context Includes}
+    Context -->|Weather| W[Temperature, Humidity, Rainfall]
+    Context -->|Soil| S[Moisture, Temperature, pH]
+    Context -->|Crop| C[Type, Stage, Days Since Irrigation]
+    Context -->|Livestock| L[Animal Type, Health, Vaccination]
+
+    W --> Evaluate
+    S --> Evaluate
+    C --> Evaluate
+    L --> Evaluate
+
+    Evaluate[Evaluate Each Rule] --> CheckEnabled{Rule Enabled?}
+    CheckEnabled -->|No| Skip[Skip Rule]
+    CheckEnabled -->|Yes| CheckApplicable{Applicable To Context?}
+
+    CheckApplicable -->|No| Skip
+    CheckApplicable -->|Yes| EvalConditions[Evaluate Conditions]
+
+    EvalConditions --> Operator{Condition Operator}
+    Operator -->|AND| AllTrue{All Conditions True?}
+    Operator -->|OR| AnyTrue{Any Condition True?}
+
+    AllTrue -->|Yes| Match[Rule Matched]
+    AllTrue -->|No| Skip
+    AnyTrue -->|Yes| Match
+    AnyTrue -->|No| Skip
+
+    Match --> BuildAction[Build Recommendation Action]
+    BuildAction --> Template[Process Message Template]
+    Template --> Urgency[Calculate Urgency Score]
+
+    Skip --> NextRule{More Rules?}
+    Urgency --> NextRule
+
+    NextRule -->|Yes| Evaluate
+    NextRule -->|No| SortByUrgency[Sort by Urgency Score]
+
+    SortByUrgency --> GroupPriority[Group by Priority Level]
+    GroupPriority --> Critical[Critical: 90-100]
+    GroupPriority --> High[High: 70-89]
+    GroupPriority --> Medium[Medium: 40-69]
+    GroupPriority --> Low[Low: 0-39]
+
+    Critical --> Schedule
+    High --> Schedule
+    Medium --> Schedule
+    Low --> Schedule
+
+    Schedule[Generate Daily Schedule] --> MapTime[Map Actions to Time Slots]
+    MapTime --> Summary[Generate Summary]
+    Summary --> Return([Return Response])
+
+    style Start fill:#c8e6c9
+    style LoadRules fill:#fff59d
+    style Evaluate fill:#ffccbc
+    style Match fill:#a5d6a7
+    style Critical fill:#ef5350
+    style High fill:#ff9800
+    style Medium fill:#fdd835
+    style Low fill:#42a5f5
+    style Return fill:#9575cd
 ```
 
 ---
