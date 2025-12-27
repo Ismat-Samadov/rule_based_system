@@ -16,6 +16,7 @@ from app.models.schemas import (
     Region
 )
 from app.services.rule_engine import RuleEngine
+from app.services.weather_service import WeatherService
 
 
 router = APIRouter()
@@ -91,6 +92,56 @@ async def quick_recommendations(
     response = engine.evaluate(data)
     
     return response
+
+
+# ============== WEATHER ==============
+
+@router.get("/weather/auto")
+async def auto_fetch_weather(request: Request):
+    """
+    Automatically fetch weather data based on client's IP location.
+
+    IP əsasında avtomatik hava məlumatı əldə edilməsi.
+
+    Returns:
+        - temperature: Current temperature (°C)
+        - humidity: Relative humidity (%)
+        - rainfall_last_24h: Rainfall in last 24h (mm)
+        - wind_speed: Wind speed (km/h)
+        - frost_warning: Boolean frost warning
+        - location: Detected location (city, country, lat/lng)
+        - region: Mapped Azerbaijan region code
+    """
+    weather_service = WeatherService()
+
+    try:
+        # Get client IP from request (for production with proxy/load balancer)
+        client_ip = request.client.host if request.client else None
+
+        # Auto-fetch weather and location
+        result = await weather_service.auto_fetch_weather(client_ip)
+
+        # Map location to Azerbaijan region
+        region = weather_service.map_location_to_region(
+            result["location"]["city"],
+            result["location"].get("region", "")
+        )
+
+        return {
+            "temperature": result["temperature"],
+            "humidity": result["humidity"],
+            "rainfall_last_24h": result["rainfall_last_24h"],
+            "wind_speed": result["wind_speed"],
+            "frost_warning": result["frost_warning"],
+            "location": result["location"],
+            "region": region
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Failed to fetch weather data")
+    finally:
+        await weather_service.close()
 
 
 # ============== FARMS & PROFILES ==============

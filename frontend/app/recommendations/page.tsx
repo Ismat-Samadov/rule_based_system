@@ -20,7 +20,7 @@ import {
   type RecommendationRequest,
   type RecommendationResponse
 } from '@/lib/api';
-import { autoFetchWeather, mapLocationToRegion } from '@/lib/weather';
+import { autoFetchWeather } from '@/lib/weather';
 
 const FARM_TYPES = [
   { id: 'wheat', name_az: 'Taxıl təsərrüfatı', description_az: 'Buğda, arpa' },
@@ -79,9 +79,8 @@ export default function RecommendationsPage() {
         frost_warning: result.frost_warning,
       });
 
-      // Update region based on detected location
-      const mappedRegion = mapLocationToRegion(result.location.city, result.location.region || '');
-      setRegion(mappedRegion);
+      // Update region based on detected location (backend provides mapped region)
+      setRegion(result.region);
 
       // Store detected location for display
       setDetectedLocation(`${result.location.city}, ${result.location.country}`);
