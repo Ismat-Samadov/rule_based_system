@@ -3,7 +3,11 @@
  * Handles all communication with the FastAPI backend
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Use relative path for client-side requests (proxied by Next.js)
+// This allows Next.js rewrites to work properly
+const API_BASE_URL = typeof window !== 'undefined'
+  ? '' // Browser: use relative path (will be proxied by Next.js)
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'); // Server: use full URL
 
 export interface WeatherData {
   temperature: number;
