@@ -1,6 +1,6 @@
 'use client';
 
-import { Leaf, Heart, Github } from 'lucide-react';
+import { Leaf, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -36,6 +36,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/chatbot" className="text-earth-600 hover:text-leaf-600 text-sm transition-colors">
+                  Chatbot
+                </Link>
+              </li>
+              <li>
                 <Link href="/farm" className="text-earth-600 hover:text-leaf-600 text-sm transition-colors">
                   Fermam
                 </Link>
@@ -46,19 +51,9 @@ export default function Footer() {
           {/* Info */}
           <div>
             <h3 className="font-semibold text-earth-800 mb-4">Haqqında</h3>
-            <p className="text-earth-600 text-sm mb-4">
+            <p className="text-earth-600 text-sm">
               Yonca AI Hackathon layihəsi - Digital Umbrella Challenge üçün hazırlanmışdır.
             </p>
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-earth-400 hover:text-earth-600 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </div>
 

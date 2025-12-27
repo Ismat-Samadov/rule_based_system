@@ -24,20 +24,26 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-earth-600 hover:text-leaf-600 font-medium transition-colors"
             >
               Ana Səhifə
             </Link>
-            <Link 
-              href="/recommendations" 
+            <Link
+              href="/recommendations"
               className="text-earth-600 hover:text-leaf-600 font-medium transition-colors"
             >
               Tövsiyələr
             </Link>
-            <Link 
-              href="/farm" 
+            <Link
+              href="/chatbot"
+              className="text-earth-600 hover:text-leaf-600 font-medium transition-colors"
+            >
+              Chatbot
+            </Link>
+            <Link
+              href="/farm"
               className="text-earth-600 hover:text-leaf-600 font-medium transition-colors"
             >
               Fermam
@@ -66,29 +72,36 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden glass border-t border-earth-200/50">
           <div className="px-4 py-4 space-y-3">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="block px-4 py-2 text-earth-600 hover:bg-leaf-50 rounded-lg font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Ana Səhifə
             </Link>
-            <Link 
-              href="/recommendations" 
+            <Link
+              href="/recommendations"
               className="block px-4 py-2 text-earth-600 hover:bg-leaf-50 rounded-lg font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Tövsiyələr
             </Link>
-            <Link 
-              href="/farm" 
+            <Link
+              href="/chatbot"
+              className="block px-4 py-2 text-earth-600 hover:bg-leaf-50 rounded-lg font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Chatbot
+            </Link>
+            <Link
+              href="/farm"
               className="block px-4 py-2 text-earth-600 hover:bg-leaf-50 rounded-lg font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Fermam
             </Link>
-            <Link 
-              href="/recommendations" 
+            <Link
+              href="/recommendations"
               className="block btn-primary text-center mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >

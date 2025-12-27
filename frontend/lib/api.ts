@@ -11,8 +11,10 @@ export interface WeatherData {
   rainfall_last_24h?: number;
   rainfall_last_7days?: number;
   rainfall_forecast_48h?: boolean;
+  rainfall_forecast_amount_mm?: number;
   wind_speed?: number;
   frost_warning?: boolean;
+  time_of_day?: string;
 }
 
 export interface SoilData {
@@ -40,7 +42,11 @@ export interface LivestockContext {
   vaccination_status?: string;
   days_since_deworming?: number;
   ventilation_quality?: string;
+  water_availability?: string;
   lactation_stage?: string;
+  reproductive_stage?: string;
+  days_until_expected_birth?: number;
+  age_days?: number;
 }
 
 export interface GreenhouseContext {

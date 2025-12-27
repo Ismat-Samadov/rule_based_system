@@ -42,10 +42,10 @@ export default function RecommendationsPage() {
   const [result, setResult] = useState<RecommendationResponse | null>(null);
   const [farmType, setFarmType] = useState('');
   const [region, setRegion] = useState('aran');
-  const [weather, setWeather] = useState<WeatherData>({ temperature: 25, humidity: 60, rainfall_last_24h: 0, wind_speed: 10, rainfall_forecast_48h: false, frost_warning: false });
+  const [weather, setWeather] = useState<WeatherData>({ temperature: 25, humidity: 60, rainfall_last_24h: 0, rainfall_last_7days: 0, rainfall_forecast_48h: false, rainfall_forecast_amount_mm: 0, wind_speed: 10, frost_warning: false });
   const [soil, setSoil] = useState<SoilData>({ soil_moisture: 50 });
   const [cropContext, setCropContext] = useState<CropContext>({ crop_type: '', stage: '', days_since_irrigation: 0, days_since_fertilization: 0, growing_type: 'open_field' });
-  const [livestockContext, setLivestockContext] = useState<LivestockContext>({ animal_type: 'cattle', count: 10, barn_hygiene_score: 7, days_since_vet_check: 30, vaccination_status: 'current', days_since_deworming: 60, ventilation_quality: 'good' });
+  const [livestockContext, setLivestockContext] = useState<LivestockContext>({ animal_type: 'cattle', count: 10, barn_hygiene_score: 7, days_since_vet_check: 30, vaccination_status: 'current', days_since_deworming: 60, ventilation_quality: 'good', water_availability: 'adequate' });
 
   const handleSubmit = async () => {
     setLoading(true);
