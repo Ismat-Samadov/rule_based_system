@@ -1,12 +1,12 @@
 """
-Chatbot API Routes
+Chatbot API Routes - Gemini AI Integration
 """
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from typing import Optional, List, Dict, Any
+from typing import Optional, List
 
-from app.chatbot.engine import get_chatbot
+from app.chatbot.gemini_engine import get_chatbot
 
 
 router = APIRouter(prefix="/chat", tags=["Chatbot"])
@@ -20,86 +20,69 @@ class ChatMessage(BaseModel):
 
 class ChatResponseModel(BaseModel):
     """Chatbot response"""
-    intent: str
-    confidence: float
     response: str
-    action: Optional[str] = None
     quick_replies: Optional[List[str]] = None
-    entities: Optional[Dict[str, Any]] = None
-
-
-class ConversationContext(BaseModel):
-    """Conversation context"""
-    session_id: str
-    context: Dict[str, Any]
-
-
-# Session storage (in production, use Redis or database)
-_sessions: Dict[str, Dict[str, Any]] = {}
 
 
 @router.post("/message", response_model=ChatResponseModel)
 async def send_message(chat: ChatMessage):
     """
-    Send a message to the chatbot and get a response
-    
-    Chatbot-a mesaj göndərin və cavab alın.
-    """
-    chatbot = get_chatbot()
-    
-    # Get or create session context
-    if chat.session_id and chat.session_id in _sessions:
-        chatbot.context = _sessions[chat.session_id]
-    
-    # Process message
-    result = chatbot.chat(chat.message)
-    
-    # Save session context
-    if chat.session_id:
-        _sessions[chat.session_id] = chatbot.get_context()
-    
-    return ChatResponseModel(
-        intent=result.intent,
-        confidence=result.confidence,
-        response=result.response,
-        action=result.action,
-        quick_replies=result.quick_replies,
-        entities=result.context_update.get('entities') if result.context_update else None
-    )
+    Send a message to the Gemini AI chatbot and get a response
 
+    Chatbot-a mesaj göndərin və AI-powered cavab alın.
+    """
+    try:
+        chatbot = get_chatbot()
 
-@router.get("/intents")
-async def list_intents():
-    """
-    Get list of all available intents
-    
-    Bütün mövcud intent-lərin siyahısı.
-    """
-    chatbot = get_chatbot()
-    return {
-        "intents": chatbot.get_intent_list(),
-        "count": len(chatbot.get_intent_list())
-    }
+        # Process message with Gemini
+        result = chatbot.chat(chat.message, session_id=chat.session_id)
+
+        return ChatResponseModel(
+            response=result.response,
+            quick_replies=result.quick_replies
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Chatbot error: {str(e)}"
+        )
 
 
 @router.post("/reset")
 async def reset_session(session_id: str):
     """
     Reset a chat session
-    
+
     Söhbət sessiyasını sıfırlayın.
     """
-    if session_id in _sessions:
-        del _sessions[session_id]
-    
+    chatbot = get_chatbot()
+    chatbot.reset_session(session_id)
+
     return {"status": "ok", "message": "Session reset"}
+
+
+@router.get("/stats")
+async def get_stats():
+    """
+    Get chatbot statistics
+
+    Chatbot statistikası.
+    """
+    chatbot = get_chatbot()
+
+    return {
+        "active_sessions": chatbot.get_session_count(),
+        "model": "Gemini Pro",
+        "status": "operational"
+    }
 
 
 @router.get("/examples")
 async def get_examples():
     """
     Get example questions to ask the chatbot
-    
+
     Chatbot-a verilə biləcək nümunə suallar.
     """
     return {
@@ -146,14 +129,3 @@ async def get_examples():
             }
         ]
     }
-
-
-@router.get("/quick-replies")
-async def get_quick_replies():
-    """
-    Get quick reply options
-    
-    Sürətli cavab variantları.
-    """
-    chatbot = get_chatbot()
-    return chatbot.quick_replies

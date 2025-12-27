@@ -158,7 +158,7 @@ export default function HomePage() {
           
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Fermenizi İndi Ağıllaşdırın
+              Fermanızı İndi Digitallaşdırın
             </h2>
             <p className="text-xl text-leaf-100 mb-10">
               Hava şəraitini daxil edin, dərhal tövsiyələr alın. 
