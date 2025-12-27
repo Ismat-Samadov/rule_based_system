@@ -96,6 +96,7 @@ class WeatherService:
     async def auto_fetch_weather(self, client_ip: Optional[str] = None) -> Dict[str, Any]:
         """
         Auto-fetch weather based on user's IP location
+        Falls back to Baku, Azerbaijan if IP geolocation fails (rate limit, etc.)
 
         Args:
             client_ip: Optional IP address (for debugging)
@@ -103,11 +104,28 @@ class WeatherService:
         Returns:
             Combined location and weather data
         """
-        try:
-            # Step 1: Get location from IP
-            location = await self.get_location_from_ip(client_ip)
+        # Default location: Baku, Azerbaijan
+        default_location = {
+            "latitude": 40.4093,
+            "longitude": 49.8671,
+            "city": "Bakı",
+            "country": "Azerbaijan",
+            "region": "Bakı"
+        }
 
-            # Step 2: Fetch weather for that location
+        location = None
+
+        try:
+            # Step 1: Try to get location from IP
+            location = await self.get_location_from_ip(client_ip)
+            logger.info(f"IP geolocation successful: {location['city']}, {location['country']}")
+        except Exception as e:
+            logger.warning(f"IP geolocation failed (using default location): {e}")
+            # Use default location on failure (rate limit, network error, etc.)
+            location = default_location
+
+        try:
+            # Step 2: Fetch weather for location (real or default)
             weather = await self.fetch_weather_data(
                 location["latitude"],
                 location["longitude"]
@@ -118,8 +136,8 @@ class WeatherService:
                 "location": location
             }
         except Exception as e:
-            logger.error(f"Auto-fetch weather error: {e}")
-            raise
+            logger.error(f"Weather fetch error: {e}")
+            raise ValueError(f"Could not fetch weather data: {e}")
 
     def map_location_to_region(self, city: str, region: str) -> str:
         """

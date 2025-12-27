@@ -100,8 +100,10 @@ async def quick_recommendations(
 async def auto_fetch_weather(request: Request):
     """
     Automatically fetch weather data based on client's IP location.
+    Falls back to Baku, Azerbaijan if IP geolocation fails (rate limit, etc.)
 
     IP əsasında avtomatik hava məlumatı əldə edilməsi.
+    IP geolocation uğursuz olsa Bakı məlumatları qaytarılır.
 
     Returns:
         - temperature: Current temperature (°C)
@@ -111,6 +113,7 @@ async def auto_fetch_weather(request: Request):
         - frost_warning: Boolean frost warning
         - location: Detected location (city, country, lat/lng)
         - region: Mapped Azerbaijan region code
+        - fallback: Boolean indicating if default location was used
     """
     weather_service = WeatherService()
 
@@ -118,7 +121,7 @@ async def auto_fetch_weather(request: Request):
         # Get client IP from request (for production with proxy/load balancer)
         client_ip = request.client.host if request.client else None
 
-        # Auto-fetch weather and location
+        # Auto-fetch weather and location (gracefully falls back to Baku if IP geolocation fails)
         result = await weather_service.auto_fetch_weather(client_ip)
 
         # Map location to Azerbaijan region
@@ -127,6 +130,9 @@ async def auto_fetch_weather(request: Request):
             result["location"].get("region", "")
         )
 
+        # Check if we used fallback location
+        is_fallback = result["location"]["city"] == "Bakı" and result["location"]["country"] == "Azerbaijan"
+
         return {
             "temperature": result["temperature"],
             "humidity": result["humidity"],
@@ -134,12 +140,11 @@ async def auto_fetch_weather(request: Request):
             "wind_speed": result["wind_speed"],
             "frost_warning": result["frost_warning"],
             "location": result["location"],
-            "region": region
+            "region": region,
+            "fallback": is_fallback  # Indicates if default location was used
         }
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Failed to fetch weather data")
+        raise HTTPException(status_code=500, detail=f"Failed to fetch weather data: {str(e)}")
     finally:
         await weather_service.close()
 
