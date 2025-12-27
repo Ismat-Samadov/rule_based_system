@@ -1,25 +1,26 @@
 'use client';
 
-import { useState } from 'react';
-import { Loader2, AlertTriangle, CheckCircle, RefreshCw } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Loader2, AlertTriangle, CheckCircle, RefreshCw, MapPin, Globe, Edit3, Sparkles } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FarmTypeCard from '@/components/FarmTypeCard';
 import WeatherInput from '@/components/WeatherInput';
 import RecommendationCard from '@/components/RecommendationCard';
 import DailySchedule from '@/components/DailySchedule';
-import { 
-  getRecommendations, 
-  REGIONS, 
-  CROP_STAGES, 
+import {
+  getRecommendations,
+  REGIONS,
+  CROP_STAGES,
   ANIMAL_TYPES,
-  type WeatherData, 
+  type WeatherData,
   type SoilData,
   type CropContext,
   type LivestockContext,
   type RecommendationRequest,
   type RecommendationResponse
 } from '@/lib/api';
+import { autoFetchWeather, mapLocationToRegion } from '@/lib/weather';
 
 const FARM_TYPES = [
   { id: 'wheat', name_az: 'Taxıl təsərrüfatı', description_az: 'Buğda, arpa' },
@@ -46,6 +47,53 @@ export default function RecommendationsPage() {
   const [soil, setSoil] = useState<SoilData>({ soil_moisture: 50 });
   const [cropContext, setCropContext] = useState<CropContext>({ crop_type: '', stage: '', days_since_irrigation: 0, days_since_fertilization: 0, growing_type: 'open_field' });
   const [livestockContext, setLivestockContext] = useState<LivestockContext>({ animal_type: 'cattle', count: 10, barn_hygiene_score: 7, days_since_vet_check: 30, vaccination_status: 'current', days_since_deworming: 60, ventilation_quality: 'good', water_availability: 'adequate' });
+
+  // Auto-fetch weather states
+  const [autoMode, setAutoMode] = useState(true);
+  const [weatherLoading, setWeatherLoading] = useState(false);
+  const [detectedLocation, setDetectedLocation] = useState<string>('');
+  const [weatherError, setWeatherError] = useState<string>('');
+
+  // Auto-fetch weather on step 2
+  useEffect(() => {
+    if (step === 2 && autoMode && !detectedLocation) {
+      handleAutoFetchWeather();
+    }
+  }, [step, autoMode]);
+
+  const handleAutoFetchWeather = async () => {
+    setWeatherLoading(true);
+    setWeatherError('');
+    try {
+      const result = await autoFetchWeather();
+
+      // Update weather data
+      setWeather({
+        temperature: result.temperature,
+        humidity: result.humidity,
+        rainfall_last_24h: result.rainfall_last_24h,
+        rainfall_last_7days: 0,
+        rainfall_forecast_48h: false,
+        rainfall_forecast_amount_mm: 0,
+        wind_speed: result.wind_speed,
+        frost_warning: result.frost_warning,
+      });
+
+      // Update region based on detected location
+      const mappedRegion = mapLocationToRegion(result.location.city, result.location.region || '');
+      setRegion(mappedRegion);
+
+      // Store detected location for display
+      setDetectedLocation(`${result.location.city}, ${result.location.country}`);
+
+    } catch (err) {
+      console.error('Auto-fetch failed:', err);
+      setWeatherError('Avtomatik hava məlumatı alına bilmədi. Zəhmət olmasa əl ilə daxil edin.');
+      setAutoMode(false); // Fallback to manual mode
+    } finally {
+      setWeatherLoading(false);
+    }
+  };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -125,16 +173,99 @@ export default function RecommendationsPage() {
           {/* Step 2: Weather */}
           {step === 2 && (
             <div className="animate-fade-in">
-              <h1 className="text-3xl font-display font-bold text-earth-900 mb-2">Hava Şəraitini Daxil Edin</h1>
-              <p className="text-earth-600 mb-8">Cari hava məlumatlarını daxil edin</p>
+              <div className="flex items-center justify-between mb-2">
+                <h1 className="text-3xl font-display font-bold text-earth-900">Hava Şəraitini Daxil Edin</h1>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAutoMode(!autoMode);
+                    if (!autoMode && !detectedLocation) {
+                      handleAutoFetchWeather();
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl border-2 transition-all text-sm font-medium ${
+                    autoMode
+                      ? 'border-leaf-500 bg-leaf-50 text-leaf-700'
+                      : 'border-earth-200 bg-white text-earth-600 hover:border-earth-300'
+                  }`}
+                  disabled={weatherLoading}
+                >
+                  {autoMode ? <Globe className="w-4 h-4" /> : <Edit3 className="w-4 h-4" />}
+                  {autoMode ? 'Avtomatik' : 'Əl ilə'}
+                </button>
+              </div>
+              <p className="text-earth-600 mb-6">
+                {autoMode ? 'IP ünvanınıza əsasən avtomatik hava məlumatı' : 'Cari hava məlumatlarını əl ilə daxil edin'}
+              </p>
+
+              {/* Auto-fetch status */}
+              {autoMode && weatherLoading && (
+                <div className="card p-6 mb-6 bg-leaf-50 border-2 border-leaf-200">
+                  <div className="flex items-center gap-3">
+                    <Loader2 className="w-5 h-5 text-leaf-600 animate-spin" />
+                    <div>
+                      <p className="font-medium text-earth-800">Yerləşməniz müəyyən edilir...</p>
+                      <p className="text-sm text-earth-600 mt-1">IP əsaslı hava məlumatı alınır</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Location detected */}
+              {autoMode && detectedLocation && !weatherLoading && (
+                <div className="card p-4 mb-6 bg-gradient-to-r from-leaf-50 to-sky-50 border-2 border-leaf-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-leaf-500 rounded-full flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium text-earth-800 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-leaf-600" />
+                        Yerləşməniz müəyyən edildi
+                      </p>
+                      <p className="text-sm text-earth-600 mt-0.5">{detectedLocation}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleAutoFetchWeather}
+                      className="px-3 py-1.5 text-sm bg-white border border-leaf-300 text-leaf-700 rounded-lg hover:bg-leaf-50 transition-colors"
+                    >
+                      Yenilə
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Error fallback */}
+              {weatherError && (
+                <div className="alert-warning mb-6 flex items-center gap-3">
+                  <AlertTriangle className="w-5 h-5" />
+                  <div className="flex-1">
+                    <p className="font-medium">Avtomatik rejim uğursuz oldu</p>
+                    <p className="text-sm mt-1">{weatherError}</p>
+                  </div>
+                </div>
+              )}
+
               <div className="card p-6 mb-6">
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-earth-700 mb-2">Region</label>
-                  <select value={region} onChange={(e) => setRegion(e.target.value)} className="select">
+                  <label className="block text-sm font-medium text-earth-700 mb-2">
+                    Region {autoMode && detectedLocation && <span className="text-xs text-leaf-600">(avtomatik seçildi)</span>}
+                  </label>
+                  <select
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                    className="select"
+                    disabled={autoMode && weatherLoading}
+                  >
                     {REGIONS.map((r) => <option key={r.id} value={r.id}>{r.name_az}</option>)}
                   </select>
                 </div>
-                <WeatherInput value={weather} onChange={setWeather} />
+                <WeatherInput
+                  value={weather}
+                  onChange={setWeather}
+                  disabled={autoMode && weatherLoading}
+                />
                 {farmType !== 'livestock' && (
                   <div className="mt-6 pt-6 border-t border-earth-200">
                     <label className="block text-sm font-medium text-earth-700 mb-2">Torpaq nəmliyi (%)</label>
@@ -145,7 +276,9 @@ export default function RecommendationsPage() {
               </div>
               <div className="flex justify-between">
                 <button type="button" onClick={() => setStep(1)} className="btn-secondary">Geri</button>
-                <button type="button" onClick={() => setStep(3)} className="btn-primary">Davam et</button>
+                <button type="button" onClick={() => setStep(3)} className="btn-primary" disabled={weatherLoading}>
+                  {weatherLoading ? 'Gözləyin...' : 'Davam et'}
+                </button>
               </div>
             </div>
           )}
