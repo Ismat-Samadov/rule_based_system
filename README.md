@@ -84,8 +84,11 @@ In Render dashboard, add these environment variables:
 
 | Key | Value | Description |
 |-----|-------|-------------|
+| `GEMINI_API_KEY` | `AIzaSy...` | **REQUIRED** - Get from https://aistudio.google.com/app/apikey |
 | `CORS_ORIGINS` | `https://your-frontend.vercel.app` | Frontend URL (update after deploying frontend) |
 | `DEBUG` | `False` | Production mode |
+
+⚠️ **Critical**: The chatbot will NOT work without `GEMINI_API_KEY`. Get your free API key from Google AI Studio.
 
 #### Step 3: Deploy
 
@@ -151,16 +154,26 @@ CORS_ORIGINS=https://your-app.vercel.app
 ### Backend (`.env`)
 
 ```bash
-# Required
+# REQUIRED - Google Gemini AI Chatbot
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Required for production
 CORS_ORIGINS=https://your-frontend.vercel.app
 
 # Optional
 DEBUG=False  # Set to True for development
 ```
 
+**Get Gemini API Key**:
+1. Visit https://aistudio.google.com/app/apikey
+2. Create a new API key (free tier available)
+3. Copy and add to environment variables
+
 **Where to set**:
 - **Render**: Dashboard → Environment → Environment Variables
-- **Local**: Create `backend/.env` file
+- **Local**: Create `.env` file in **project root** (not in backend/ subdirectory)
+
+⚠️ **Important**: The backend loads `.env` from the project root, not from `backend/` directory!
 
 ---
 
@@ -518,20 +531,24 @@ For production, consider:
 ### Backend Setup
 
 ```bash
-cd backend
+# 1. Set up environment variables
+cd rule_based_recommendation_system  # Project root
+cp .env.example .env
+# Edit .env and add your GEMINI_API_KEY
 
-# Create virtual environment
+# 2. Install dependencies
+cd backend
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
 pip install -r requirements.txt
 
-# Run server
-uvicorn app.main:app --reload --port 8000
+# 3. Run server
+python3 -m uvicorn app.main:app --reload --port 8000
 ```
 
 Backend will be at: http://localhost:8000
+
+⚠️ **Important**: Create `.env` in **project root**, not in `backend/` directory!
 
 ### Frontend Setup
 

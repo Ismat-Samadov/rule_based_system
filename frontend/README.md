@@ -64,9 +64,26 @@ frontend/
 
 ## 🔗 API Connection
 
-Backend API URL: `http://localhost:8000` (or set `NEXT_PUBLIC_API_URL`)
+### Environment Variables
+
+**Required**:
+- `NEXT_PUBLIC_API_URL`: Backend API URL
+  - Local: `http://localhost:8000`
+  - Production: `https://your-backend.onrender.com`
+
+**Setup**:
+```bash
+# For local development
+cp .env.local.example .env.local
+# Edit .env.local and set NEXT_PUBLIC_API_URL=http://localhost:8000
+
+# For production (Vercel)
+# Set NEXT_PUBLIC_API_URL in Vercel Dashboard → Settings → Environment Variables
+```
 
 The Next.js config includes a proxy rewrite to forward `/api/v1/*` requests to the backend.
+
+⚠️ **Important**: All frontend environment variables MUST be prefixed with `NEXT_PUBLIC_` to be accessible in the browser.
 
 ### Weather Auto-Fetch Feature
 

@@ -93,17 +93,39 @@ Server işə düşdükdən sonra:
 }
 ```
 
-### Chatbot
+### Chatbot (Gemini AI)
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/v1/chat/message` | İstifadəçi mesajına intent-based cavab |
+| POST | `/api/v1/chat/message` | Send message to AI chatbot |
+| POST | `/api/v1/chat/reset` | Reset chat session |
+| GET | `/api/v1/chat/stats` | Get chatbot statistics |
+| GET | `/api/v1/chat/examples` | Get example questions |
 
 **Features**:
-- Intent recognition with fuzzy matching
-- Azerbaijani language support
-- Quick reply suggestions
-- Context-aware responses
+- ✨ **AI-Powered**: Google Gemini (gemini-flash-latest model)
+- 🇦🇿 **Azerbaijani Language**: Native agricultural terminology
+- 💬 **Context-Aware**: Session-based conversation history
+- ⚡ **Smart Replies**: Contextual quick reply suggestions
+- 📊 **Rich Formatting**: Tables, emojis, structured responses
+- 🆓 **Free Tier**: No cost for usage
+
+**Example Request**:
+```json
+POST /api/v1/chat/message
+{
+  "message": "Pomidoru nə vaxt suvarmalıyam?",
+  "session_id": "user123"  // Optional
+}
+```
+
+**Example Response**:
+```json
+{
+  "response": "💧🍅 Pomidor Suvarma Vaxtı\n\nSalam! Pomidorun suvarma rejimi...",
+  "quick_replies": ["💧 Nə qədər su?", "⏰ Nə vaxt suvarım?", "🌊 Hansı üsul?"]
+}
+```
 
 ### System
 
@@ -192,9 +214,38 @@ backend/
 
 ## 🔧 Configuration
 
-Environment variables (optional):
+### Environment Variables
+
+**REQUIRED**:
+- `GEMINI_API_KEY`: Google Gemini AI API key for chatbot
+  - Get from: https://aistudio.google.com/app/apikey
+  - Free tier available
+  - Chatbot will NOT work without this
+
+**Optional**:
 - `DEBUG`: Enable debug mode (default: True)
-- `CORS_ORIGINS`: Allowed origins for CORS
+- `CORS_ORIGINS`: Allowed origins for CORS (default: http://localhost:3000)
+
+### Setup
+
+1. Create `.env` file in **project root** (not in backend/ directory):
+```bash
+cd ..  # Go to project root
+cp .env.example .env
+# Edit .env and add your GEMINI_API_KEY
+```
+
+2. The backend automatically loads `.env` from project root via:
+```python
+from pathlib import Path
+from dotenv import load_dotenv
+
+project_root = Path(__file__).parent.parent.parent
+env_path = project_root / ".env"
+load_dotenv(dotenv_path=env_path)
+```
+
+This allows all services (backend + frontend) to share the same `.env` file.
 
 ---
 
