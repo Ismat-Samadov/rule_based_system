@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Leaf, Wheat, Trees, Tractor, ArrowRight, Sparkles, Shield, Clock, Users } from 'lucide-react';
+import { Leaf, Wheat, Trees, Beef, ArrowRight, Sparkles, Shield, Clock, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -34,7 +34,7 @@ const features = [
 
 const farmTypes = [
   { id: 'wheat', name: 'Taxıl', icon: Wheat, count: 31 },
-  { id: 'livestock', name: 'Heyvandarlıq', icon: Tractor, count: 22 },
+  { id: 'livestock', name: 'Heyvandarlıq', icon: Beef, count: 22 },
   { id: 'orchard', name: 'Meyvə bağı', icon: Trees, count: 26 },
   { id: 'vegetable', name: 'Tərəvəz', icon: Leaf, count: 31 },
 ];

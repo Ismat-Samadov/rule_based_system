@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Save, Wheat, Trees, Salad, Tractor, MapPin, Check } from 'lucide-react';
+import { Save, Wheat, Trees, Salad, Beef, MapPin, Check } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { REGIONS, ANIMAL_TYPES, CROP_STAGES } from '@/lib/api';
 
 const FARM_TYPES = [
   { id: 'wheat', name_az: 'Taxıl təsərrüfatı', icon: Wheat, color: 'from-wheat-400 to-wheat-600' },
-  { id: 'livestock', name_az: 'Heyvandarlıq', icon: Tractor, color: 'from-earth-400 to-earth-600' },
+  { id: 'livestock', name_az: 'Heyvandarlıq', icon: Beef, color: 'from-earth-400 to-earth-600' },
   { id: 'orchard', name_az: 'Meyvə bağı', icon: Trees, color: 'from-leaf-400 to-leaf-600' },
   { id: 'vegetable', name_az: 'Tərəvəzçilik', icon: Salad, color: 'from-emerald-400 to-emerald-600' },
 ];

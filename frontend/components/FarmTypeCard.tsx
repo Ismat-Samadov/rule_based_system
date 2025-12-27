@@ -1,6 +1,6 @@
 'use client';
 
-import { Wheat, Trees, Salad, Tractor, Leaf } from 'lucide-react';
+import { Wheat, Trees, Salad, Layers, Leaf } from 'lucide-react';
 import clsx from 'clsx';
 
 interface FarmTypeCardProps {
@@ -22,7 +22,7 @@ const farmIcons: Record<string, React.ReactNode> = {
   ),
   orchard: <Trees className="w-8 h-8" />,
   vegetable: <Salad className="w-8 h-8" />,
-  mixed: <Tractor className="w-8 h-8" />,
+  mixed: <Layers className="w-8 h-8" />,
 };
 
 const farmColors: Record<string, string> = {
