@@ -14,7 +14,7 @@
 - **API Documentation**: https://rule-based-system.onrender.com/docs
 - **Frontend**: Deploy on Vercel (see instructions below)
 
-⚠️ **Important**: Backend is on Render free tier - first request may take **30-60 seconds** to wake up from sleep. Subsequent requests are instant.
+⚠️ **Important**: Backend is on Render free tier - first request may take **4-5 minutes** to wake up from sleep. Subsequent requests are instant.
 
 ---
 
@@ -412,7 +412,7 @@ No authentication required (public API)
 ### Cold Start Issue
 
 - **Sleep After Inactivity**: Backend goes to sleep after 15 minutes of no requests
-- **Wake-Up Time**: First request after sleep takes **30-60 seconds** to respond
+- **Wake-Up Time**: First request after sleep takes **4-5 minutes** to respond
 - **Subsequent Requests**: Instant response after wake-up
 
 ### How to Handle in Frontend
@@ -618,7 +618,7 @@ rule_based_system/
 
 ### Backend takes too long
 
-**Issue**: First request takes 30-60 seconds
+**Issue**: First request takes 4-5 minutes
 
 **This is normal** - Render free tier sleeps after inactivity. Solution:
 - Wait for first request to complete
