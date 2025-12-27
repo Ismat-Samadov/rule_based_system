@@ -23,7 +23,8 @@ interface ChatResponse {
   entities?: Record<string, any>;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Use empty string for browser to enable Next.js proxy
+const API_URL = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
