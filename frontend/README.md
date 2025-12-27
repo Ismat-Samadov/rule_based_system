@@ -68,6 +68,40 @@ Backend API URL: `http://localhost:8000` (or set `NEXT_PUBLIC_API_URL`)
 
 The Next.js config includes a proxy rewrite to forward `/api/v1/*` requests to the backend.
 
+### Weather Auto-Fetch Feature
+
+**Architecture**: Backend-First (Security Best Practice)
+
+```
+User Browser → Frontend → Backend API → External APIs
+                                      ↓
+                               (IP Geolocation + Weather Data)
+```
+
+**Why Backend-First?**
+- ✅ No API endpoints exposed to browser
+- ✅ Backend controls rate limiting and caching
+- ✅ Better security (no API keys in frontend code)
+- ✅ Graceful fallback to manual input if auto-fetch fails
+
+**Usage in Code**:
+```typescript
+import { autoFetchWeather } from '@/lib/api';
+
+// Call backend endpoint to auto-fetch weather
+const result = await autoFetchWeather();
+// Backend handles IP detection and weather API calls
+```
+
+**User Flow**:
+1. User clicks "Avtomatik Al" button in recommendations page
+2. Frontend calls `/api/v1/weather/auto` endpoint
+3. Backend detects user's location from IP address
+4. Backend fetches weather data from Open-Meteo API
+5. Backend maps location to Azerbaijan region
+6. Frontend receives complete weather data and auto-fills the form
+7. If auto-fetch fails, user can manually enter weather data (fallback)
+
 ## 📱 Səhifələr
 
 ### Ana Səhifə (`/`)

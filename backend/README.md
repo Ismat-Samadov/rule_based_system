@@ -56,6 +56,55 @@ Server işə düşdükdən sonra:
 | GET | `/api/v1/constants/regions` | Regionlar |
 | GET | `/api/v1/constants/stages` | Mərhələlər |
 
+### Weather Auto-Fetch
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/weather/auto` | İstifadəçinin IP ünvanına əsasən avtomatik hava məlumatı |
+
+**Architecture**: Backend-first approach
+- Uses IP geolocation (ipapi.co) to detect user location
+- Fetches weather data from Open-Meteo API (free, no API key needed)
+- Maps location to Azerbaijan regions (aran, lankaran, sheki_zagatala, etc.)
+- Returns temperature, humidity, rainfall, wind speed, and frost warnings
+
+**Benefits**:
+- ✅ No API keys exposed to frontend
+- ✅ Centralized rate limiting and caching
+- ✅ Graceful error handling
+- ✅ Regional mapping for Azerbaijan
+
+**Example Response**:
+```json
+{
+  "temperature": 8,
+  "humidity": 68,
+  "rainfall_last_24h": 0.0,
+  "wind_speed": 27,
+  "frost_warning": false,
+  "location": {
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "region": "Absheron",
+    "latitude": 40.4093,
+    "longitude": 49.8671
+  },
+  "region": "aran"
+}
+```
+
+### Chatbot
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/chat/message` | İstifadəçi mesajına intent-based cavab |
+
+**Features**:
+- Intent recognition with fuzzy matching
+- Azerbaijani language support
+- Quick reply suggestions
+- Context-aware responses
+
 ### System
 
 | Method | Endpoint | Description |
