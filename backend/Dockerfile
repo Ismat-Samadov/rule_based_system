@@ -25,8 +25,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 # Create non-root user
-RUN useradd -m -u 1000 yonca && chown -R yonca:yonca /app
-USER yonca
+RUN useradd -m -u 1000 agriadvisor && chown -R agriadvisor:agriadvisor /app
+USER agriadvisor
 
 # Expose port
 EXPOSE 8000

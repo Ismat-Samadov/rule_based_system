@@ -30,7 +30,7 @@ export default function FarmPage() {
 
   const handleSave = () => {
     // In a real app, this would save to a database
-    localStorage.setItem('yonca_farm_profile', JSON.stringify({
+    localStorage.setItem('agriadvisor_farm_profile', JSON.stringify({
       farmType,
       region,
       farmName,

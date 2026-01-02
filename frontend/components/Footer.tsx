@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-earth-800 mb-4">Haqqında</h3>
             <p className="text-earth-600 text-sm">
-              AgriAdvisor AI Hackathon layihəsi - Digital Umbrella Challenge üçün hazırlanmışdır.
+              Ağıllı kənd təsərrüfatı məsləhət sistemi - fermerlərin gündəlik qərarlarına dəstək.
             </p>
           </div>
         </div>

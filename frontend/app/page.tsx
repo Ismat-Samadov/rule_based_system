@@ -52,7 +52,7 @@ export default function HomePage() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-leaf-100 rounded-full text-leaf-700 text-sm font-medium mb-8 animate-fade-in">
                 <Sparkles className="w-4 h-4" />
-                <span>AI Hackathon 2025 - Digital Umbrella Challenge</span>
+                <span>Ağıllı Kənd Təsərrüfatı Həlli</span>
               </div>
 
               {/* Title */}

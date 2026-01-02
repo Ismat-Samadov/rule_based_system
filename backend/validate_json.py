@@ -53,7 +53,7 @@ def main():
     base_dir = Path(__file__).parent / 'app' / 'data'
 
     print("=" * 60)
-    print("YONCA JSON DATA VALIDATION")
+    print("AGRIADVISOR JSON DATA VALIDATION")
     print("=" * 60)
 
     total_files = 0

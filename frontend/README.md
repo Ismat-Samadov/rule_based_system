@@ -538,12 +538,12 @@ netlify deploy --prod --dir=.next
 
 ```bash
 # Build Docker image
-docker build -t yonca-frontend .
+docker build -t agricultural-advisory-frontend .
 
 # Run container
 docker run -p 3000:3000 \
   -e NEXT_PUBLIC_API_URL=https://your-backend-url.com \
-  yonca-frontend
+  agricultural-advisory-frontend
 ```
 
 ### Environment Variables for Production
