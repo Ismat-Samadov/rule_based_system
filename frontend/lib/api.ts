@@ -1,5 +1,5 @@
 /**
- * Yonca API Client
+ * AgriAdvisor API Client
  * Handles all communication with the FastAPI backend
  */
 

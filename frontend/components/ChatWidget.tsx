@@ -32,7 +32,7 @@ export default function ChatWidget() {
     {
       id: '1',
       role: 'bot',
-      content: 'Salam! Mən Yonca - sizin kənd təsərrüfatı məsləhətçinizəm. Suvarma, gübrələmə, zərərverici və ya digər mövzularda sual verə bilərsiniz. 🌾',
+      content: 'Salam! Mən AgriAdvisor - sizin kənd təsərrüfatı məsləhətçinizəm. Suvarma, gübrələmə, zərərverici və ya digər mövzularda sual verə bilərsiniz. 🌾',
       timestamp: new Date(),
     }
   ]);
@@ -137,7 +137,7 @@ export default function ChatWidget() {
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="text-white font-semibold">Yonca Məsləhətçi</h3>
+                <h3 className="text-white font-semibold">AgriAdvisor Məsləhətçi</h3>
                 <p className="text-leaf-100 text-xs flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
                   Online

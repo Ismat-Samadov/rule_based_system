@@ -14,7 +14,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-gradient-to-br from-leaf-500 to-leaf-600 rounded-xl flex items-center justify-center">
                 <Leaf className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-display font-bold text-gradient">Yonca</span>
+              <span className="text-xl font-display font-bold text-gradient">AgriAdvisor</span>
             </div>
             <p className="text-earth-600 text-sm">
               Azərbaycan fermerləri üçün ağıllı kənd təsərrüfatı məsləhət sistemi.
@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-earth-800 mb-4">Haqqında</h3>
             <p className="text-earth-600 text-sm">
-              Yonca AI Hackathon layihəsi - Digital Umbrella Challenge üçün hazırlanmışdır.
+              AgriAdvisor AI Hackathon layihəsi - Digital Umbrella Challenge üçün hazırlanmışdır.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-8 pt-8 border-t border-earth-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-earth-500 text-sm">
-            © 2025 Yonca. Bütün hüquqlar qorunur.
+            © 2025 AgriAdvisor. Bütün hüquqlar qorunur.
           </p>
           <p className="text-earth-500 text-sm flex items-center gap-1">
             <Heart className="w-4 h-4 text-danger-400" />

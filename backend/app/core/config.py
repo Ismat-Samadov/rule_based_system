@@ -1,5 +1,5 @@
 """
-Configuration settings for Yonca API
+Configuration settings for AgriAdvisor API
 """
 
 from pydantic_settings import BaseSettings
@@ -12,7 +12,7 @@ class Settings(BaseSettings):
 
     # API Settings
     API_V1_PREFIX: str = "/api/v1"
-    PROJECT_NAME: str = "Yonca Rule-Based Advisory API"
+    PROJECT_NAME: str = "AgriAdvisor Rule-Based Advisory API"
 
     # CORS - reads from CORS_ORIGINS env variable
     # For production, set CORS_ORIGINS="https://your-frontend.onrender.com"

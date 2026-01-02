@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-JSON Data Validator for Yonca Rule-Based System
+JSON Data Validator for AgriAdvisor Rule-Based System
 Validates all JSON files in the data directory
 """
 

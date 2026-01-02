@@ -1,4 +1,4 @@
-# Yonca Frontend Dockerfile - Multi-stage build
+# AgriAdvisor Frontend Dockerfile - Multi-stage build
 FROM node:20-alpine AS base
 
 # Install dependencies only when needed

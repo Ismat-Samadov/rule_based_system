@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Yonca API Run Script
+# AgriAdvisor API Run Script
 
 # Change to backend directory
 cd "$(dirname "$0")"
@@ -19,7 +19,7 @@ echo "Installing dependencies..."
 pip install -r requirements.txt
 
 # Run the server
-echo "Starting Yonca API..."
+echo "Starting AgriAdvisor API..."
 echo "API docs available at: http://localhost:8000/docs"
 echo ""
 

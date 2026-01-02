@@ -1,5 +1,5 @@
 """
-API Routes for Yonca Rule-Based Advisory System
+API Routes for AgriAdvisor Rule-Based Advisory System
 """
 
 from fastapi import APIRouter, Request, HTTPException

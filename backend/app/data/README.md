@@ -1,4 +1,4 @@
-# Yonca Rule-Based System - Qaydalar Strukturu
+# AgriAdvisor Rule-Based System - Qaydalar Strukturu
 
 ## 📁 Fayl Strukturu
 
@@ -131,5 +131,3 @@ Hər bir qayda aşağıdakı strukturu izləyir:
 
 ---
 
-*Yonca AI Hackathon - Digital Umbrella Challenge*
-*Rule-Based Agricultural Advisory System*

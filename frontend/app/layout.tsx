@@ -3,10 +3,10 @@ import './globals.css';
 import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
-  title: 'Yonca - Ağıllı Kənd Təsərrüfatı Məsləhətçisi',
+  title: 'AgriAdvisor - Ağıllı Kənd Təsərrüfatı Məsləhətçisi',
   description: 'Azərbaycan fermerləri üçün qayda əsaslı kənd təsərrüfatı tövsiyə sistemi. 127+ ağıllı qayda ilə suvarma, gübrələmə və zərərverici idarəetməsi.',
   keywords: ['kənd təsərrüfatı', 'fermer', 'Azərbaycan', 'suvarma', 'gübrələmə', 'tövsiyə', 'heyvandarlıq', 'bağçılıq'],
-  authors: [{ name: 'Yonca Team' }],
+  authors: [{ name: 'AgriAdvisor Team' }],
   icons: {
     icon: '/icon.svg',
     apple: '/icon.svg',

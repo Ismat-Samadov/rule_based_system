@@ -1,5 +1,5 @@
 """
-Pydantic models for Yonca API
+Pydantic models for AgriAdvisor API
 """
 
 from pydantic import BaseModel, Field

@@ -1,5 +1,5 @@
 """
-Yonca Chatbot Engine - Gemini AI Integration
+AgriAdvisor Chatbot Engine - Gemini AI Integration
 Azerbaijani agricultural chatbot powered by Google Gemini
 """
 
@@ -23,13 +23,13 @@ class ChatResponse:
     quick_replies: Optional[List[str]] = None
 
 
-class YoncaGeminiChatbot:
+class AgriAdvisorGeminiChatbot:
     """
     Gemini AI-powered chatbot for Azerbaijani agricultural advice
     """
 
     # System prompt to guide Gemini's behavior
-    SYSTEM_PROMPT = """Sən Yonca adlı kənd təsərrüfatı məsləhətçisisən. Azərbaycan fermerlərinin kənd təsərrüfatı ilə bağlı suallarına Azərbaycan dilində cavab verirsən.
+    SYSTEM_PROMPT = """Sən AgriAdvisor adlı kənd təsərrüfatı məsləhətçisisən. Azərbaycan fermerlərinin kənd təsərrüfatı ilə bağlı suallarına Azərbaycan dilində cavab verirsən.
 
 Sənin biliklərin:
 - Suvarma: vaxt, miqdar, üsullar (damcı, şırım, yağmurlama)
@@ -119,7 +119,7 @@ Fermerə dost, peşəkar və faydalı ol!"""
             },
             {
                 'role': 'model',
-                'parts': ['Başa düşdüm! Mən Yonca - Azərbaycan fermerlərinin kənd təsərrüfatı məsləhətçisiyəm. Sizə praktik, konkret məsləhətlər verəcəyəm. Sualınızı gözləyirəm! 🌾']
+                'parts': ['Başa düşdüm! Mən AgriAdvisor - Azərbaycan fermerlərinin kənd təsərrüfatı məsləhətçisiyəm. Sizə praktik, konkret məsləhətlər verəcəyəm. Sualınızı gözləyirəm! 🌾']
             }
         ])
 
@@ -196,12 +196,12 @@ Fermerə dost, peşəkar və faydalı ol!"""
 
 
 # Singleton instance
-_chatbot_instance: Optional[YoncaGeminiChatbot] = None
+_chatbot_instance: Optional[AgriAdvisorGeminiChatbot] = None
 
 
-def get_chatbot() -> YoncaGeminiChatbot:
+def get_chatbot() -> AgriAdvisorGeminiChatbot:
     """Get or create chatbot instance"""
     global _chatbot_instance
     if _chatbot_instance is None:
-        _chatbot_instance = YoncaGeminiChatbot()
+        _chatbot_instance = AgriAdvisorGeminiChatbot()
     return _chatbot_instance

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "Bitki və heyvan mərhələləri - Yonca Rule-Based System",
+  "description": "Bitki və heyvan mərhələləri - AgriAdvisor Rule-Based System",
   "last_updated": "2025-12-26",
   
   "crop_stages": {

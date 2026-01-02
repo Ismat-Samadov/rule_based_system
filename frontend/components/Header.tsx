@@ -17,7 +17,7 @@ export default function Header() {
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <div>
-              <span className="text-xl font-display font-bold text-gradient">Yonca</span>
+              <span className="text-xl font-display font-bold text-gradient">AgriAdvisor</span>
               <span className="hidden sm:block text-xs text-earth-500">Ağıllı Kənd Təsərrüfatı</span>
             </div>
           </Link>

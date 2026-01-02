@@ -1,4 +1,4 @@
-# Yonca Frontend
+# AgriAdvisor Frontend
 
 **Azərbaycan kənd təsərrüfatı üçün qayda əsaslı məsləhət sisteminin Next.js frontend interfeysi**
 
@@ -566,4 +566,3 @@ docker run -p 3000:3000 \
 
 ---
 
-*Yonca AI Hackathon - Digital Umbrella Challenge*

@@ -1,5 +1,5 @@
 """
-Yonca Rule-Based Agricultural Advisory System
+AgriAdvisor Rule-Based Agricultural Advisory System
 FastAPI Backend Application
 """
 
@@ -30,11 +30,11 @@ async def lifespan(app: FastAPI):
     yield
     
     # Cleanup on shutdown
-    print("👋 Shutting down Yonca API...")
+    print("👋 Shutting down AgriAdvisor API...")
 
 
 app = FastAPI(
-    title="Yonca Rule-Based Advisory API",
+    title="AgriAdvisor Rule-Based Advisory API",
     description="Azərbaycan kənd təsərrüfatı üçün qayda əsaslı məsləhət sistemi",
     version="1.0.0",
     lifespan=lifespan
@@ -58,7 +58,7 @@ app.include_router(chatbot_router, prefix="/api/v1")
 async def root():
     """Root endpoint"""
     return {
-        "name": "Yonca Rule-Based Advisory API",
+        "name": "AgriAdvisor Rule-Based Advisory API",
         "version": "1.0.0",
         "status": "running",
         "docs": "/docs"

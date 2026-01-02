@@ -39,7 +39,7 @@ export default function ChatbotPage() {
     {
       id: '1',
       role: 'bot',
-      content: 'Salam! Mən Yonca - sizin kənd təsərrüfatı məsləhətçinizəm. Suvarma, gübrələmə, zərərverici və ya digər mövzularda sual verə bilərsiniz. 🌾\n\nBuradan başlaya bilərsiniz:',
+      content: 'Salam! Mən AgriAdvisor - sizin kənd təsərrüfatı məsləhətçinizəm. Suvarma, gübrələmə, zərərverici və ya digər mövzularda sual verə bilərsiniz. 🌾\n\nBuradan başlaya bilərsiniz:',
       timestamp: new Date(),
       quickReplies: INITIAL_SUGGESTIONS,
     }
@@ -136,7 +136,7 @@ export default function ChatbotPage() {
                 <Bot className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-display font-bold text-earth-900 mb-1">Yonca Məsləhətçi</h1>
+                <h1 className="text-3xl font-display font-bold text-earth-900 mb-1">AgriAdvisor Məsləhətçi</h1>
                 <p className="text-earth-600 flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   Online - Kənd təsərrüfatı üzrə AI köməkçi
