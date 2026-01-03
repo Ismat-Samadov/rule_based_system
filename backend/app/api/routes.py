@@ -100,10 +100,12 @@ async def quick_recommendations(
 async def auto_fetch_weather(request: Request):
     """
     Automatically fetch weather data based on client's IP location.
-    Falls back to Baku, Azerbaijan if IP geolocation fails (rate limit, etc.)
+    Falls back to Baku, Azerbaijan if:
+    - IP geolocation fails (rate limit, network error)
+    - Location detected outside Azerbaijan (VPN, proxy, etc.)
 
     IP əsasında avtomatik hava məlumatı əldə edilməsi.
-    IP geolocation uğursuz olsa Bakı məlumatları qaytarılır.
+    Azərbaycandan kənar yerləşmə və ya IP xətası olarsa Bakı məlumatları qaytarılır.
 
     Returns:
         - temperature: Current temperature (°C)
@@ -121,7 +123,7 @@ async def auto_fetch_weather(request: Request):
         # Get client IP from request (for production with proxy/load balancer)
         client_ip = request.client.host if request.client else None
 
-        # Auto-fetch weather and location (gracefully falls back to Baku if IP geolocation fails)
+        # Auto-fetch weather and location (gracefully falls back to Baku if non-Azerbaijan location detected)
         result = await weather_service.auto_fetch_weather(client_ip)
 
         # Map location to Azerbaijan region
@@ -129,9 +131,6 @@ async def auto_fetch_weather(request: Request):
             result["location"]["city"],
             result["location"].get("region", "")
         )
-
-        # Check if we used fallback location
-        is_fallback = result["location"]["city"] == "Bakı" and result["location"]["country"] == "Azerbaijan"
 
         return {
             "temperature": result["temperature"],
@@ -141,7 +140,7 @@ async def auto_fetch_weather(request: Request):
             "frost_warning": result["frost_warning"],
             "location": result["location"],
             "region": region,
-            "fallback": is_fallback  # Indicates if default location was used
+            "fallback": result.get("used_fallback", False)  # True if VPN/foreign IP detected
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch weather data: {str(e)}")

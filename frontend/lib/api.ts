@@ -188,6 +188,7 @@ export interface AutoWeatherResult {
     longitude: number;
   };
   region: string;
+  fallback: boolean; // True if VPN/foreign IP detected, fallback to Baku used
 }
 
 export async function autoFetchWeather(): Promise<AutoWeatherResult> {

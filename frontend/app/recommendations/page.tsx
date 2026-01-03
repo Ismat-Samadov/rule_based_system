@@ -83,7 +83,10 @@ export default function RecommendationsPage() {
       setRegion(result.region);
 
       // Store detected location for display
-      setDetectedLocation(`${result.location.city}, ${result.location.country}`);
+      const locationDisplay = result.fallback
+        ? `${result.location.city}, ${result.location.country} (VPN/proxy aşkarlandı, Bakı istifadə edilir)`
+        : `${result.location.city}, ${result.location.country}`;
+      setDetectedLocation(locationDisplay);
 
     } catch (err) {
       console.error('Auto-fetch failed:', err);

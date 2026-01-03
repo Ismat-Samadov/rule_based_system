@@ -96,7 +96,9 @@ class WeatherService:
     async def auto_fetch_weather(self, client_ip: Optional[str] = None) -> Dict[str, Any]:
         """
         Auto-fetch weather based on user's IP location
-        Falls back to Baku, Azerbaijan if IP geolocation fails (rate limit, etc.)
+        Falls back to Baku, Azerbaijan if:
+        - IP geolocation fails (rate limit, network error)
+        - Detected location is outside Azerbaijan (VPN, proxy, routing)
 
         Args:
             client_ip: Optional IP address (for debugging)
@@ -114,18 +116,28 @@ class WeatherService:
         }
 
         location = None
+        used_fallback = False
 
         try:
             # Step 1: Try to get location from IP
             location = await self.get_location_from_ip(client_ip)
             logger.info(f"IP geolocation successful: {location['city']}, {location['country']}")
+
+            # Step 2: Check if location is in Azerbaijan
+            # If not (VPN, proxy, or foreign IP), use default Azerbaijan location
+            if location.get("country", "").lower() not in ["azerbaijan", "azərbaycan"]:
+                logger.warning(f"Detected location outside Azerbaijan ({location['country']}), using Baku as default")
+                location = default_location
+                used_fallback = True
+
         except Exception as e:
             logger.warning(f"IP geolocation failed (using default location): {e}")
             # Use default location on failure (rate limit, network error, etc.)
             location = default_location
+            used_fallback = True
 
         try:
-            # Step 2: Fetch weather for location (real or default)
+            # Step 3: Fetch weather for location (real or default)
             weather = await self.fetch_weather_data(
                 location["latitude"],
                 location["longitude"]
@@ -133,7 +145,8 @@ class WeatherService:
 
             return {
                 **weather,
-                "location": location
+                "location": location,
+                "used_fallback": used_fallback
             }
         except Exception as e:
             logger.error(f"Weather fetch error: {e}")
