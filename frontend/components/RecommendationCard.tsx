@@ -72,6 +72,58 @@ const categoryLabels: Record<string, string> = {
   daily_coordination: 'Koordinasiya',
 };
 
+// Azerbaijani translations for common field labels
+const fieldTranslations: Record<string, string> = {
+  cattle: 'Mal-qara',
+  sheep: 'Qoyun',
+  goat: 'Keçi',
+  poultry: 'Quşçuluq',
+  feed_increase_percent: 'Yem artımı (%)',
+  feed_reduction_percent: 'Yem azalması (%)',
+  water_increase_percent: 'Su artımı (%)',
+  timing_change_az: 'Vaxt dəyişikliyi',
+  additional_az: 'Əlavə təlimatlar',
+  recommendations_az: 'Tövsiyələr',
+  adjustments_by_animal: 'Heyvan növünə görə tənzimlənmələr',
+  water_change_az: 'Su dəyişikliyi',
+  feed_reduction_note_az: 'Yem qeydi',
+};
+
+// Helper function to render complex values
+const renderValue = (key: string, value: any): React.ReactNode => {
+  if (value === null || value === undefined) return '-';
+
+  // Handle arrays
+  if (Array.isArray(value)) {
+    return (
+      <ul className="list-disc list-inside space-y-1">
+        {value.map((item, idx) => (
+          <li key={idx} className="text-earth-700">{String(item)}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  // Handle objects (like adjustments_by_animal)
+  if (typeof value === 'object') {
+    return (
+      <div className="space-y-2 pl-2 border-l-2 border-earth-200">
+        {Object.entries(value).map(([subKey, subValue]) => (
+          <div key={subKey} className="space-y-1">
+            <div className="font-medium text-earth-800 text-sm">
+              {fieldTranslations[subKey] || subKey.replace(/_/g, ' ')}:
+            </div>
+            <div className="pl-3">{renderValue(subKey, subValue)}</div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Handle primitives
+  return <span className="text-earth-700">{String(value)}</span>;
+};
+
 export default function RecommendationCard({ recommendation }: RecommendationCardProps) {
   const [expanded, setExpanded] = useState(false);
   const config = urgencyConfig[recommendation.urgency as keyof typeof urgencyConfig] || urgencyConfig.info;
@@ -167,21 +219,24 @@ export default function RecommendationCard({ recommendation }: RecommendationCar
 
           {expanded && (
             <div className="px-4 pb-4 pt-2 border-t border-dashed" style={{ borderColor: 'inherit' }}>
-              <div className="bg-white/50 rounded-lg p-3 text-sm">
-                <h4 className="font-medium text-earth-700 mb-2">Təfərrüatlar:</h4>
-                <dl className="space-y-1">
-                  {Object.entries(recommendation.action_details).map(([key, value]) => {
-                    if (key === 'type' || key === 'urgency' || key === 'urgency_score') return null;
-                    return (
-                      <div key={key} className="flex gap-2">
-                        <dt className="text-earth-500 capitalize">{key.replace(/_/g, ' ')}:</dt>
-                        <dd className="text-earth-700 font-medium">
-                          {typeof value === 'object' ? JSON.stringify(value) : String(value)}
-                        </dd>
+              <div className="bg-white/50 rounded-lg p-4 text-sm space-y-3">
+                <h4 className="font-semibold text-earth-800 mb-3 flex items-center gap-2">
+                  <Info className="w-4 h-4" />
+                  Təfərrüatlar
+                </h4>
+                {Object.entries(recommendation.action_details).map(([key, value]) => {
+                  if (key === 'type' || key === 'urgency' || key === 'urgency_score') return null;
+                  return (
+                    <div key={key} className="space-y-2">
+                      <div className="text-earth-700 font-semibold text-sm">
+                        {fieldTranslations[key] || key.replace(/_/g, ' ')}
                       </div>
-                    );
-                  })}
-                </dl>
+                      <div className="pl-2">
+                        {renderValue(key, value)}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
