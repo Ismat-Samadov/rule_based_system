@@ -27,7 +27,7 @@
         "timing_az": "Dərhal - səhər 05:00-07:00 və ya axşam 19:00-21:00",
         "amount_mm_per_ha": {"base": 30, "max": 35}
       },
-      "message_az": "TƏCILI: Temperatur {temperature}°C - buğda üçün kritik həddədir. Dərhal suvarma tələb olunur.",
+      "message_az": "TƏCILI: Temperatur {temperature}°C - buğda üçün kritik həddədir. Dərhal suvarma tələb edilir.",
       "message_en": "URGENT: Temperature {temperature}°C is critical for wheat. Immediate irrigation required.",
       "reasoning_az": "32°C-dən yuxarı temperaturda buğda istilik stressinə məruz qalır, məhsuldarlıq 20-40% azala bilər."
     },

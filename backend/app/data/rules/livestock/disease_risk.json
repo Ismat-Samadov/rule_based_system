@@ -71,10 +71,10 @@
         "actions_az": [
           "Tövlə təmizliyini artırın",
           "Döşəmə qurulunu təmin edin",
-          "Sağım gigiyenasını gücləndirilmə"
+          "Sağım gigiyenasını gücləndirin"
         ]
       },
-      "message_az": "Mastit riski var. Rütubət {humidity}%, gigiyena {barn_hygiene_score}/10. Gigiyena tədbirlərini gücləndirilmə.",
+      "message_az": "Mastit riski var. Rütubət {humidity}%, gigiyena {barn_hygiene_score}/10. Gigiyena tədbirlərini gücləndirin.",
       "message_en": "Mastitis risk present. Humidity {humidity}%, hygiene {barn_hygiene_score}/10. Strengthen hygiene measures."
     },
     {
@@ -207,17 +207,17 @@
           ],
           "sheep": [
             "Günorta otlatmanı dayandırın",
-            "Səhər erkən/axşam geç otladın",
+            "Səhər tezdən/axşam gec otlatın",
             "Su məntəqələrini artırın"
           ],
           "poultry": [
             "Elektrolit əlavəsi",
-            "Su temperaturunu soyuq saxlayın",
-            "Səhər erkən yemlənmə"
+            "Su temperaturunu sərin saxlayın",
+            "Səhər tezdən yemlənmə"
           ]
         }
       },
-      "message_az": "İstilik stressi xəbərdarlığı! Temperatur {temperature}°C, rütubət {humidity}%. Sovutma tədbirləri görün.",
+      "message_az": "İstilik stressi xəbərdarlığı! Temperatur {temperature}°C, rütubət {humidity}%. Soyutma tədbirləri görün.",
       "message_en": "Heat stress warning! Temperature {temperature}°C, humidity {humidity}%. Take cooling measures."
     },
     {

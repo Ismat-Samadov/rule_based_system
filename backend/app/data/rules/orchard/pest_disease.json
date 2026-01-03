@@ -35,7 +35,7 @@
         ],
         "frequency_az": "7-10 gün interval, yağışdan sonra təkrar"
       },
-      "message_az": "MİLDİU RİSKİ KRİTİK! Temperatur {temperature}°C, rütubət {humidity}%, son 7 gündə {rainfall_last_7days}mm yağış. DƏRHAL fungisid çiləyin!",
+      "message_az": "MİLDİU RİSKİ KRİTİK! Temperatur {temperature}°C, rütubət {humidity}%, son 7 gündə {rainfall_last_7days}mm yağış. Dərhal fungisid çiləyin!",
       "message_en": "MILDEW RISK CRITICAL! Temperature {temperature}°C, humidity {humidity}%, {rainfall_last_7days}mm rain in 7 days. Apply fungicide IMMEDIATELY!",
       "symptoms_az": [
         "Yarpaq üstündə yağlı sarı ləkələr",
@@ -154,12 +154,12 @@
         "urgency": "medium",
         "urgency_score": 60,
         "actions_az": [
-          "Xəstəlik budaqları kəsin və yandırın",
+          "Xəstə budaqları kəsin və yandırın",
           "Profilaktik fungisid (Captan, Mancozeb)",
           "Ölmüş meyvələri yığın"
         ]
       },
-      "message_az": "Qara xərçəng üçün əlverişli şərait. Xəstə budaqları kəsin, profilaktik çiləmə aparın.",
+      "message_az": "Qara xərçəng üçün əlverişli şərait. Xəstə budaqları kəsib yandırın, profilaktik çiləmə aparın.",
       "message_en": "Conditions favorable for black rot. Remove infected branches, apply preventive spray."
     },
     {
@@ -185,10 +185,10 @@
           "Müntəzəm suvarma (çatlama qarşısı)",
           "Zədəli meyvələri dərhal çıxarın",
           "Mis fungisid çiləyin",
-          "Tacı seyrəldin - hava dövranı"
+          "Tacı seyrəltmək - hava dövranı"
         ]
       },
-      "message_az": "Meyvə çürüməsi riski. Rütubət {humidity}%. Çatlamış/zədəli meyvələri yığın, fungisid çiləyin.",
+      "message_az": "Meyvə çürüməsi riski. Rütubət {humidity}%. Çatlamış/zədəli meyvələri təmizləyin, fungisid çiləyin.",
       "message_en": "Fruit rot risk. Humidity {humidity}%. Remove cracked/damaged fruits, apply fungicide.",
       "risk_factors_az": [
         "Meyvə çatlaması (suvarma qeyri-müntəzəmliyi)",

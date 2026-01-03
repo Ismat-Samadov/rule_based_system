@@ -32,7 +32,7 @@
         ],
         "repeat_interval_days": 14
       },
-      "message_az": "Pas xəstəliyi riski YÜKSƏK. Temperatur {temperature}°C və rütubət {humidity}% - pas üçün ideal şərait. Fungisid çiləyin.",
+      "message_az": "Pas xəstəliyi riski YÜKSƏK. Temperatur {temperature}°C və rütubət {humidity}% - pas üçün ideal şərait. Dərhal fungisid çiləyin.",
       "message_en": "Rust disease risk HIGH. Temperature {temperature}°C and humidity {humidity}% - ideal conditions for rust.",
       "symptoms_az": [
         "Yarpaqlarda sarı-narıncı tozlu ləkələr",

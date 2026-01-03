@@ -63,8 +63,7 @@ export default function Footer() {
             © 2025 AgriAdvisor. Bütün hüquqlar qorunur.
           </p>
           <p className="text-earth-500 text-sm flex items-center gap-1">
-            <Heart className="w-4 h-4 text-danger-400" />
-            ilə Azərbaycanda hazırlanmışdır
+            Azərbaycanda <Heart className="w-4 h-4 text-danger-400" /> ilə hazırlanmışdır
           </p>
         </div>
       </div>

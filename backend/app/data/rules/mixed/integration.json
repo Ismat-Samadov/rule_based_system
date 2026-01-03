@@ -34,7 +34,7 @@
           "orchards": {"amount_kg_per_tree": 12.5}
         }
       },
-      "message_az": "Peyin idarəetməsi: TƏZƏ peyin istifadə ETMƏYİN! Minimum 3-6 ay kompostlaşdırın. Temperatur 55-65°C-yə çatmalı (patogen məhvi).",
+      "message_az": "Peyin idarəetməsi: TƏZƏ peyin istifadə ETMƏYİN! Minimum 3-6 ay kompostlaşdırın. Temperatur 55-65°C-ə çatmalıdır (patogen məhv edilməsi üçün).",
       "message_en": "Manure management: DO NOT use fresh manure! Compost for minimum 3-6 months. Temperature must reach 55-65°C (pathogen destruction).",
       "restrictions_az": [
         "Yarpaq tərəvəzlərdə yığımdan 60 gün əvvəl dayandırın",

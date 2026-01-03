@@ -80,12 +80,12 @@
         "urgency": "medium",
         "urgency_score": 60,
         "operations_az": [
-          {"name": "Zoğ uclarının vurulması (topping)", "purpose_az": "Böyüməni dayandırmaq, meyvəyə enerji yönəltmək"},
+          {"name": "Zoğ uclarının vurulması (topping)", "purpose_az": "Böyüməni dayandırmaq, meyvəyə enerji yönləndirmək"},
           {"name": "Salxım ətrafındakı yarpaqların seyrəldilməsi", "purpose_az": "Meyvəyə işıq düşsün, havalanma"},
           {"name": "Qoltuq zoğlarının çıxarılması", "purpose_az": "Əlavə zoğları kəsmək"}
         ]
       },
-      "message_az": "Yay yaşıl budaması vaxtı. Zoğ uclarını vurun, salxım ətrafını seyrəldin.",
+      "message_az": "Yay yaşıl budaması vaxtı. Zoğ uclarını vurun, salxım ətrafını seyrəltmək lazımdır.",
       "message_en": "Summer green pruning time. Top shoots, thin leaves around clusters."
     },
     {
@@ -108,11 +108,11 @@
         "urgency_score": 55,
         "operations_az": [
           {"name": "Su zoğlarının kəsilməsi (suckers)", "purpose_az": "Dik, şaquli zoğları kəsin"},
-          {"name": "Həddən artıq sıx budaqların seyrəldilməsi", "purpose_az": "İşıq və hava keçiricilyyi"},
+          {"name": "Həddən artıq sıx budaqların seyrəldilməsi", "purpose_az": "İşıq və hava keçiriciliyi"},
           {"name": "Xəstə/zədəli budaqların çıxarılması", "purpose_az": "Xəstəlik yayılmasının qarşısı"}
         ]
       },
-      "message_az": "Yay budaması vaxtı. Su zoğlarını kəsin, tacı seyrəldin. Meyvəyə işıq düşməsini təmin edin.",
+      "message_az": "Yay budaması vaxtı. Su zoğlarını kəsin, tacı seyrəltmək lazımdır. Meyvəyə işıq düşməsini təmin edin.",
       "message_en": "Summer pruning time. Remove water shoots, thin canopy. Ensure light reaches fruit."
     },
     {
@@ -162,13 +162,13 @@
         "urgency_score": 55,
         "note_az": "Nar həddən artıq budamaya həssasdır - yüngül budama tövsiyə olunur",
         "operations_az": [
-          "Kök zoğlarını (pöhrələri) kəsin",
+          "Kök zoğlarını kəsin",
           "Ölmüş/xəstə budaqları çıxarın",
           "Tac mərkəzini yüngülcə açın",
           "Formasiya budamasını minimal saxlayın"
         ]
       },
-      "message_az": "Nar budaması - YÜNGÜL olmalıdır. Həddən artıq budama məhsulu azaldır. Yalnız pöhrələri və xəstə budaqları kəsin.",
+      "message_az": "Nar budaması - YÜNGÜL olmalıdır. Həddən artıq budama məhsulu azaldır. Yalnız kök zoğlarını və xəstə budaqları kəsin.",
       "message_en": "Pomegranate pruning - should be LIGHT. Excessive pruning reduces yield. Only remove suckers and diseased branches."
     }
   ],

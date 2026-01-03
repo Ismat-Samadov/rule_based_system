@@ -53,7 +53,7 @@
         "urgency": "medium",
         "urgency_score": 50
       },
-      "message_az": "Hələ yığım üçün erkəndir. Dən rütubəti {grain_moisture}% - ideal 13-14%. Sünbüldə yaşıl hissələr varsa, daha gözləyin.",
+      "message_az": "Hələ yığım üçün tezdir. Dən rütubəti {grain_moisture}% - ideal 13-14%. Sünbüldə yaşıl hissələr varsa, daha gözləyin.",
       "message_en": "Too early for harvest. Grain moisture {grain_moisture}% - ideal is 13-14%.",
       "early_harvest_problems_az": [
         "Yüksək qurutma xərcləri",
@@ -81,7 +81,7 @@
         "urgency_score": 100,
         "timing_az": "DƏRHAL"
       },
-      "message_az": "TƏCİLİ: Dən tökülməsi başlayıb! Hər gün 2-3% məhsul itkisi ola bilər. Dərhal yığım başladın.",
+      "message_az": "TƏCİLİ: Dən tökülməsi başlayıb! Hər gün 2-3% məhsul itkisi ola bilər. Dərhal yığıma başlayın.",
       "message_en": "URGENT: Grain shattering has started! 2-3% yield loss per day possible. Start harvest immediately.",
       "late_harvest_problems_az": [
         "Dən tökülməsi ilə məhsul itkisi",

@@ -145,7 +145,7 @@
         "type": "irrigate",
         "urgency": "critical",
         "urgency_score": 95,
-        "timing_az": "Səhər erkən (06:00 əvvəl) və ya axşam (19:00 sonra)",
+        "timing_az": "Səhər tezdən (06:00 əvvəl) və ya axşam (19:00 sonra)",
         "additional_az": ["Kölgələndirmə şəbəkəsi düşünün", "Mulçalama tətbiq edin"]
       },
       "message_az": "KRİTİK İSTİLİK: Temperatur {temperature}°C. Meyvə yanığı riski var. Dərhal suvarın, kölgələndirmə düşünün.",

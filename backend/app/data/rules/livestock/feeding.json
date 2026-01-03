@@ -39,7 +39,7 @@
           "sheep": {
             "feed_reduction_percent": 15,
             "timing_change_az": "Günorta otlatma dayandırılmalı",
-            "additional_az": ["Səhər erkən (05:00-09:00) otlatma", "Axşam geç (18:00-21:00) otlatma"]
+            "additional_az": ["Səhər tezdən (05:00-09:00) otlatma", "Axşam gec (18:00-21:00) otlatma"]
           },
           "goat": {
             "feed_reduction_percent": 10,
@@ -48,8 +48,8 @@
           },
           "poultry": {
             "feed_reduction_note_az": "Quşlar özləri az yeyəcək - normaldır",
-            "water_change_az": "Soyuq su təmin edin",
-            "additional_az": ["Elektrolit əlavəsi", "Səhər erkən (05:00-07:00) yemlənmə"]
+            "water_change_az": "Sərin su təmin edin",
+            "additional_az": ["Elektrolit əlavəsi", "Səhər tezdən (05:00-07:00) yemlənmə"]
           }
         }
       },
@@ -145,9 +145,9 @@
         "urgency_score": 55,
         "recommendations_az": [
           "Yem miqdarını azaldın",
-          "Kobud yem üstünlük təşkil etməli",
-          "Kalsium səviyyəsini azaldın (süd hərarəti qarşısının alınması)",
-          "Doğumdan 3 həftə əvvəl tədricən konsentrat artırın"
+          "Kobud yem üstünlük təşkil etməlidir",
+          "Kalsium səviyyəsini azaldın (süd qızdırmasının qarşısının alınması üçün)",
+          "Doğumdan 3 həftə əvvəl tədricən konsentratı artırın"
         ]
       },
       "message_az": "Quru dövr - enerji ehtiyacı aşağıdır. Doğuma hazırlıq üçün son 3 həftədə rasion dəyişin.",
@@ -174,11 +174,11 @@
         "recommendations_az": [
           "Son 6 həftədə yemi 30-50% artırın",
           "Keyfiyyətli ot + konsentrat",
-          "İkizlikdə daha çox artım",
+          "İkizlikdə daha çox yem artımı",
           "Mineral/vitamin əlavəsi"
         ]
       },
-      "message_az": "Gec boğazlıq dövrü - quzunun 70%-i bu dövrdə böyüyür. Yemləməni ciddi artırın!",
+      "message_az": "Gec boğazlıq dövrü - quzunun 70%-i bu dövrdə böyüyür. Yemləməni ciddi şəkildə artırın!",
       "message_en": "Late gestation - 70% of lamb growth occurs now. Significantly increase feeding!"
     },
     {

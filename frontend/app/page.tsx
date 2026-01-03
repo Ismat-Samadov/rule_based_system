@@ -57,14 +57,14 @@ export default function HomePage() {
 
               {/* Title */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-earth-900 mb-6 animate-slide-up">
-                Fermeriniz üçün{' '}
+                Fermerlər üçün{' '}
                 <span className="text-gradient">Ağıllı Məsləhətçi</span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-xl md:text-2xl text-earth-600 mb-10 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-                Azərbaycan kənd təsərrüfatı üçün hazırlanmış qayda əsaslı tövsiyə sistemi. 
-                Hava şəraitinə, torpağa və məhsulunuza uyğun real vaxt tövsiyələri.
+                Azərbaycan kənd təsərrüfatı üçün hazırlanmış qayda əsaslı tövsiyə sistemi.
+                Hava şəraitinə, torpağa və məhsulunuza uyğun real zamanlı tövsiyələr.
               </p>
 
               {/* CTA Buttons */}
@@ -93,7 +93,7 @@ export default function HomePage() {
                 Niyə AgriAdvisor?
               </h2>
               <p className="text-xl text-earth-600 max-w-2xl mx-auto">
-                Yerli şəraitə uyğunlaşdırılmış, güvənilən kənd təsərrüfatı məsləhətləri
+                Yerli şəraitə uyğunlaşdırılmış, etibarlı kənd təsərrüfatı məsləhətləri
               </p>
             </div>
 
@@ -158,11 +158,11 @@ export default function HomePage() {
           
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Fermanızı İndi Digitallaşdırın
+              Fermanızı İndi Rəqəmsallaşdırın
             </h2>
             <p className="text-xl text-leaf-100 mb-10">
-              Hava şəraitini daxil edin, dərhal tövsiyələr alın. 
-              Heç bir qeydiyyat tələb olunmur.
+              Hava şəraitini daxil edin, dərhal tövsiyələr alın.
+              Heç bir qeydiyyat tələb edilmir.
             </p>
             <Link 
               href="/recommendations" 

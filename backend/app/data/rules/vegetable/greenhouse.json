@@ -26,11 +26,11 @@
         "immediate_actions_az": [
           "Ventilyasiyanı TAM açın",
           "Kölgələndirmə örtüyünü çəkin",
-          "Dumanlama/suvarma sistemi ilə sovutma",
+          "Dumanlama/suvarma sistemi ilə soyutma",
           "Yan pəncərələri açın"
         ]
       },
-      "message_az": "KRİTİK: Sera temperaturu {inside_temperature}°C! 35°C-dən yuxarı temperatur çiçək tökülməsinə və meyvə zədələnməsinə səbəb olur. DƏRHAL sovutma tədbirləri!",
+      "message_az": "KRİTİK: Sera temperaturu {inside_temperature}°C! 35°C-dən yuxarı temperatur çiçək tökülməsinə və meyvə zədələnməsinə səbəb olur. DƏRHAL soyutma tədbirləri!",
       "message_en": "CRITICAL: Greenhouse temperature {inside_temperature}°C! Above 35°C causes flower drop and fruit damage. IMMEDIATE cooling measures!"
     },
     {
@@ -107,7 +107,7 @@
         "urgency_score": 60,
         "actions_az": [
           "Damcı suvarmanı artırın",
-          "Dumanlama sistemi işladin",
+          "Dumanlama sistemini işə salın",
           "Döşəməni isladın"
         ],
         "risk_az": "Çiçək tökülməsi, zəif meyvə bağlanması"
