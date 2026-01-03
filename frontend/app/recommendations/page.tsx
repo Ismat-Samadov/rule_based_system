@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Loader2, AlertTriangle, CheckCircle, RefreshCw, MapPin, Globe, Edit3, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FarmTypeCard from '@/components/FarmTypeCard';
@@ -53,6 +54,31 @@ export default function RecommendationsPage() {
   const [weatherLoading, setWeatherLoading] = useState(false);
   const [detectedLocation, setDetectedLocation] = useState<string>('');
   const [weatherError, setWeatherError] = useState<string>('');
+  const [profileLoaded, setProfileLoaded] = useState(false);
+
+  // Load saved farm profile on mount
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('agriadvisor_farm_profile');
+    if (savedProfile) {
+      try {
+        const profile = JSON.parse(savedProfile);
+        if (profile.farmType) setFarmType(profile.farmType);
+        if (profile.region) setRegion(profile.region);
+
+        // Pre-fill crop/animal selections if available
+        if (profile.selectedCrops && profile.selectedCrops.length > 0) {
+          setCropContext({ ...cropContext, crop_type: profile.selectedCrops[0] });
+        }
+        if (profile.selectedAnimals && profile.selectedAnimals.length > 0) {
+          setLivestockContext({ ...livestockContext, animal_type: profile.selectedAnimals[0] as any });
+        }
+
+        setProfileLoaded(true);
+      } catch (error) {
+        console.error('Failed to load farm profile:', error);
+      }
+    }
+  }, []);
 
   // Auto-fetch weather on step 2
   useEffect(() => {
@@ -160,7 +186,34 @@ export default function RecommendationsPage() {
           {step === 1 && (
             <div className="animate-fade-in">
               <h1 className="text-3xl font-display font-bold text-earth-900 mb-2">Ferma Tipinizi Seçin</h1>
-              <p className="text-earth-600 mb-8">Tövsiyələr ferma tipinizə görə fərdiləşdiriləcək</p>
+              <p className="text-earth-600 mb-4">Tövsiyələr ferma tipinizə görə fərdiləşdiriləcək</p>
+
+              {/* Profile loaded indicator */}
+              {profileLoaded && (
+                <div className="card p-4 mb-6 bg-gradient-to-r from-leaf-50 to-emerald-50 border-2 border-leaf-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-leaf-500 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium text-earth-800 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-leaf-600" />
+                        Ferma profiliniz yükləndi
+                      </p>
+                      <p className="text-sm text-earth-600 mt-0.5">
+                        Saxlanılmış məlumatlar avtomatik dolduruldu
+                      </p>
+                    </div>
+                    <Link
+                      href="/farm"
+                      className="px-3 py-1.5 text-sm bg-white border border-leaf-300 text-leaf-700 rounded-lg hover:bg-leaf-50 transition-colors"
+                    >
+                      Dəyişdir
+                    </Link>
+                  </div>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {FARM_TYPES.map((type) => (
                   <FarmTypeCard key={type.id} {...type} selected={farmType === type.id} onClick={() => setFarmType(type.id)} />

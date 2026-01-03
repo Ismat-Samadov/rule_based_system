@@ -1,6 +1,6 @@
 'use client';
 
-import { Leaf, Heart } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -58,12 +58,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 pt-8 border-t border-earth-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 pt-8 border-t border-earth-200 flex flex-col sm:flex-row items-center justify-center gap-4">
           <p className="text-earth-500 text-sm">
             © 2025 AgriAdvisor. Bütün hüquqlar qorunur.
-          </p>
-          <p className="text-earth-500 text-sm flex items-center gap-1">
-            Azərbaycanda <Heart className="w-4 h-4 text-danger-400" /> ilə hazırlanmışdır
           </p>
         </div>
       </div>

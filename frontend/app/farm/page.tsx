@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Save, Wheat, Trees, Salad, Beef, MapPin, Check } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -27,6 +27,24 @@ export default function FarmPage() {
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
   const [selectedAnimals, setSelectedAnimals] = useState<string[]>([]);
   const [area, setArea] = useState('');
+
+  // Load saved profile on mount
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('agriadvisor_farm_profile');
+    if (savedProfile) {
+      try {
+        const profile = JSON.parse(savedProfile);
+        setFarmType(profile.farmType || 'wheat');
+        setRegion(profile.region || 'aran');
+        setFarmName(profile.farmName || '');
+        setSelectedCrops(profile.selectedCrops || []);
+        setSelectedAnimals(profile.selectedAnimals || []);
+        setArea(profile.area || '');
+      } catch (error) {
+        console.error('Failed to load farm profile:', error);
+      }
+    }
+  }, []);
 
   const handleSave = () => {
     // In a real app, this would save to a database
